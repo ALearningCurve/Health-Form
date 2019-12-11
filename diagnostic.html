@@ -5,7 +5,7 @@
     <title>Diagnostic</title>
 
     <!-- This is the bootstrap css file --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <!-- This is the local css file --> <link rel="stylesheet" href="css/diagnostic.css">
   </head>
 
   <body>
@@ -37,7 +37,7 @@
               Tests
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="tests/head/form.html">Brain</a>
+              <a class="dropdown-item" href="tests/head/form.html">Head</a>
               <a class="dropdown-item" href="tests/eyes/form.html">Eyes</a>
               <a class="dropdown-item" href="tests/oral/form.html">Mouth/Throat</a>
               <a class="dropdown-item" href="tests/nose/form.html">Nose</a>
@@ -53,6 +53,15 @@
         </form>
       </div>
     </nav>
+
+    <!-- Create the buttons to click on -->
+
+    <a id="head-button" class="btn btn-secondary" href="tests/head/form.html">Head</a>
+    <a id="eye-button" class="btn btn-secondary" href="tests/eyes/form.html">Eyes</a>
+    <a id="oral-button" class="btn btn-secondary" href="tests/oral/form.html">Mouth/Throat</a>
+    <a id="nose-button" class="btn btn-secondary" href="tests/nose/form.html">Nose</a>
+    <a id="ear-button" class="btn btn-secondary" href="tests/ears/form.html">Ears</a>
+
 
 
     <!-- Links to Bootstrap JavaScript files so that the site works-->
