@@ -8,7 +8,7 @@
     <title>Mouth/Throat Diagnostic</title>
 
     <!-- This is the bootstrap css file --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <!-- This is a local stlyesheet --> <link rel="stylesheet" href="/css/form.css">
   </head>
 
   <body>
@@ -60,25 +60,25 @@
       <h1> Please Fill Out the Form! </h1>
 
 
-    <form class="my-5">
+    <form class="my-5 needs-validation" method="post" action="checker.php" novalidate>
       <!-- First Question -->
       <h4 class="mt-4"> Does your   ___   hurt? </h3>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="q1"value="y">
+        <input class="form-check-input" type="radio" name="q1"value="y" required>
         <label class="form-check-label" for="exampleRadios1">
           Yes
         </label>
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="q1" value="n">
+        <input class="form-check-input" type="radio" name="q1" value="n" required>
         <label class="form-check-label" for="exampleRadios1">
           No
         </label>
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="q1" value="m">
+        <input class="form-check-input" type="radio" name="q1" value="m" required>
         <label class="form-check-label" for="exampleRadios1">
           Maybe
         </label>
@@ -90,24 +90,26 @@
       <!-- Second Question -->
       <h4 class="mt-4"> AaAAaAAaA? </h3>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="q2"value="y">
+        <input class="form-check-input" type="radio" name="q2"value="y" required>
         <label class="form-check-label" for="exampleRadios1">
           Yes
         </label>
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="q2" value="n">
+        <input class="form-check-input" type="radio" name="q2" value="n" required>
         <label class="form-check-label" for="exampleRadios1">
           No
         </label>
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="q2" value="AaAAaaaAAaa">
+        <input class="form-check-input" type="radio" name="q2" value="AaAAaaaAAaa" required>
         <label class="form-check-label" for="exampleRadios1">
           AaAAaaaAAaa
         </label>
+        <!-- Put this div below each of the last questios -->
+        <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please Select One of the Above</em></font></div>
       </div>
 
 
@@ -120,5 +122,29 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!-- NOTE: This is required to run the form validation COPY THIS TOO  -->
+    <!-- JavaScript from Bootstrap to make form validation -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
   </body>
 </html>
