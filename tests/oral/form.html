@@ -57,12 +57,12 @@
 
 
     <div class="container my-3">
-      <h1> Please Fill Out the Form! </h1>
+      <h1> Please Fill Out this Form! </h1>
 
 
     <form class="my-5 needs-validation" method="post" action="checker.php" novalidate>
       <!-- First Question -->
-      <h4 class="mt-4"> Does your   ___   hurt? </h3>
+      <h4 class="mt-4"> Is your nose runny or have you been sneezing often? </h3>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="q1"value="y" required>
         <label class="form-check-label" for="exampleRadios1">
@@ -90,7 +90,7 @@
 
 
       <!-- Second Question -->
-      <h4 class="mt-4"> AaAAaAAaA? </h3>
+      <h4 class="mt-4"> Do you have a headache? </h3>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="q2"value="y" required>
         <label class="form-check-label" for="exampleRadios1">
@@ -106,13 +106,43 @@
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="q2" value="AaAAaaaAAaa" required>
+        <input class="form-check-input" type="radio" name="q2" value="m" required>
         <label class="form-check-label" for="exampleRadios1">
-          AaAAaaaAAaa
+          Maybe
         </label>
         <!-- Put this div below each of the last questios -->
         <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please Select One of the Above</em></font></div>
       </div>
+
+
+
+
+        <!-- Third Question -->
+        <h4 class="mt-4"> Do you have shortness of breath? </h3>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q3"value="y" required>
+            <label class="form-check-label" for="exampleRadios1">
+              Yes
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q3" value="n" required>
+            <label class="form-check-label" for="exampleRadios1">
+              No
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q3" value="m" required>
+            <label class="form-check-label" for="exampleRadios1">
+              Maybe
+            </label>
+            <!-- Put this div below each of the last questios -->
+            <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please Select One of the Above</em></font></div>
+          </div>
+
+
 
 
       <button type="submit" class="btn btn-secondary my-3">Submit!</button>
