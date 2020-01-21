@@ -13,7 +13,7 @@
 
   // Get the second question;s answer and do something
   if ($_POST["q2"] == "y") {
-    $diagnosis["Terminal AaaAAaAAAAaAaA"] += 1;
+    $diagnosis["Common Cold"] += 1;
   }
 
 
