@@ -2,19 +2,23 @@
 
   $diagnosis = [
     "Common Cold" => 0,
-    "Terminal AaaAAaAAAAaAaA" => 0,
+    "Fever" => 0,
   ];
 
 
   // Get the first question's answer and do something
-  if ($_POST["q1"] == "y") {
+  if ($_POST["cough"] == "y") {
     $diagnosis["Common Cold"] += 1;
   }
 
   // Get the second question;s answer and do something
-  if ($_POST["q2"] == "y") {
-    $diagnosis["Common Cold"] += 1;
+  if ($_POST["itch"] == "y") {
+    $diagnosis["Fever"] += 1;
   }
+
+  if ($_POST["jaw"] == "y") {
+      $diagnosis["Common Cold"] += 1;
+    }
 
 
 
