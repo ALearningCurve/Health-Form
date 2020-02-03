@@ -2,19 +2,35 @@
 
   $diagnosis = [
     "Common Cold" => 0,
-    "Terminal AaaAAaAAAAaAaA" => 0,
+    "Fever" => 0,
+    "Flu" => 0,
+    "Allergies" => 0,
+    "AAAAAAAAAAAAAAAAAAAA" => 0,
   ];
 
+  // AAAAAAAAAAAAAAAAAAAA substitute for undetermined thing that i will research later
 
-  // Get the first question's answer and do something
-  if ($_POST["q1"] == "y") {
+
+  // if person coughing
+  if ($_POST["cough"] == "y") {
     $diagnosis["Common Cold"] += 1;
   }
 
-  // Get the second question;s answer and do something
-  if ($_POST["q2"] == "y") {
-    $diagnosis["Common Cold"] += 1;
+  // if person itchy throat
+  if ($_POST["itch"] == "y") {
+    $diagnosis["Fever"] += 1;
   }
+
+    // if person dry mouth
+    if ($_POST["dry"] == "y") {
+      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+    }
+
+
+// if person tight jaw/can't chew
+  if ($_POST["jaw"] == "y") {
+      $diagnosis["Common Cold"] += 1;
+    }
 
 
 
