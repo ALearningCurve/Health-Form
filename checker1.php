@@ -5,6 +5,7 @@
     "Fever" => 0,
     "Flu" => 0,
     "Allergies" => 0,
+    "Pneumonia" => 0,
     "AAAAAAAAAAAAAAAAAAAA" => 0,
   ];
 
@@ -14,21 +15,21 @@
   // if person coughing
   if ($_POST["cough"] == "y") {
     $diagnosis["Common Cold"] += 1;
+    $diagnosis["Pneumonia"] += 1;
   }
 
   // if person itchy throat
-  if ($_POST["itch"] == "y") {
+  if ($_POST["itchy throat"] == "y") {
     $diagnosis["Fever"] += 1;
   }
 
     // if person dry mouth
-    if ($_POST["dry"] == "y") {
+    if ($_POST["dry mouth"] == "y") {
       $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
     }
 
-
 // if person tight jaw/can't chew
-  if ($_POST["jaw"] == "y") {
+  if ($_POST["tight jaw"] == "y") {
       $diagnosis["Common Cold"] += 1;
     }
 
