@@ -67,6 +67,14 @@
       $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
     }
 
+  if ($_POST["appetite"] == "y") {
+        $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      }
+
+  if ($_POST["tightjaw"] == "y") {
+        $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      }
+
   if ($_POST["gumpain"] == "y") {
       $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
     }
