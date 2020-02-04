@@ -6,11 +6,16 @@
     "Flu" => 0,
     "Pneumonia" => 0,
     "Whooping Cough" => 0,
+    "Tuberculosis" => 0,
+    "Allergies" => 0,
+    "Eczema" => 0,
+    "Brain Aneurysm" => 0,
+    "Brain Tumor" => 0,
+    "Concussion" => 0,
+    "Ear Infection" => 0,
+    "Glaucoma" => 0,
     "AAAAAAAAAAAAAAAAAAAA" => 0,
   ];
-
-
-
 
 
 
@@ -20,15 +25,16 @@
 
   // ears
   if ($_POST["earache"] == "y") {
-    $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+    $diagnosis["Ear Infection"] += 1;
   }
 
   if ($_POST["hearingloss"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Brain Tumor"] += 1;
+      $diagnosis["Ear Infection"] += 1;
     }
 
   if ($_POST["eardischarge"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Ear Infection"] += 1;
     }
 
   if ($_POST["clog"] == "y") {
@@ -40,7 +46,7 @@
     }
 
   if ($_POST["ringing"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Concussion"] += 1;
     }
 
 
@@ -50,6 +56,8 @@
       $diagnosis["Flu"] += 1;
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Whooping Cough"] += 1;
+      $diagnosis["Tuberculosis"] += 1;
+      $diagnosis["Allergies"] += 1;
     }
 
   if ($_POST["itchysorethroat"] == "y") {
@@ -66,7 +74,7 @@
     }
 
   if ($_POST["bumpytongue"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Tuberculosis"] += 1;
     }
 
   if ($_POST["coughingblood"] == "y") {
@@ -75,10 +83,15 @@
 
   if ($_POST["vomit"] == "y") {
       $diagnosis["Pneumonia"] += 1;
+      $diagnosis["Allergies"] += 1;
+      $diagnosis["Eczema"] += 1;
+      $diagnosis["Brain Aneurysm"] += 1;
+      $diagnosis["Concussion"] += 1;
+      $diagnosis["Glaucoma"] += 1;
     }
 
   if ($_POST["appetite"] == "y") {
-        $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+        $diagnosis["Tuberculosis"] += 1;
       }
 
   if ($_POST["tightjaw"] == "y") {
@@ -92,23 +105,27 @@
 
   //eyes
   if ($_POST["eyepain"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Glaucoma"] += 1;
     }
 
   if ($_POST["redeyes"] == "y") {
       $diagnosis["Whooping Cough"] += 1;
+      $diagnosis["Allergies"] += 1;
+      $diagnosis["Glaucoma"] += 1;
     }
 
   if ($_POST["itchyeyes"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Allergies"] += 1;
     }
 
   if ($_POST["wateryeyes"] == "y") {
       $diagnosis["Whooping Cough"] += 1;
+      $diagnosis["Allergies"] += 1;
     }
 
   if ($_POST["visionloss"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Brain Aneurysm"] += 1;
+      $diagnosis["Glaucoma"] += 1;
     }
 
   if ($_POST["twitch"] == "y") {
@@ -116,7 +133,7 @@
     }
 
   if ($_POST["droop"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Brain Aneurysm"] += 1;
     }
 
   if ($_POST["eyedischarge"] == "y") {
@@ -124,7 +141,7 @@
     }
 
   if ($_POST["doublevision"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Brain Aneurysm"] += 1;
     }
 
 
@@ -134,7 +151,9 @@
     }
 
   if ($_POST["dizzy"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Allergies"] += 1;
+      $diagnosis["Eczema"] += 1;
+      $diagnosis["Concussion"] += 1;
     }
 
   if ($_POST["hair"] == "y") {
@@ -148,6 +167,11 @@
   if ($_POST["headache"] == "y") {
       $diagnosis["Common Cold"] += 1;
       $diagnosis["Flu"] += 1;
+      $diagnosis["Brain Aneurysm"] += 1;
+      $diagnosis["Brain Tumor"] += 1;
+      $diagnosis["Concussion"] += 1;
+      $diagnosis["Ear Infection"] += 1;
+      $diagnosis["Glaucoma"] += 1;
     }
 
   if ($_POST["numb"] == "y") {
@@ -159,12 +183,19 @@
       $diagnosis["Flu"] += 1;
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Whooping Cough"] += 1;
+      $diagnosis["Tuberculosis"] += 1;
     }
+
+  if ($_POST["itchyskin"] == "y") {
+        $diagnosis["Allergies"] += 1;
+        $diagnosis["Eczema"] += 1;
+      }
 
 
   //nose
   if ($_POST["breathing"] == "y") {
       $diagnosis["Pneumonia"] += 1;
+      $diagnosis["Allergies"] += 1;
     }
 
   if ($_POST["misshapen"] == "y") {
