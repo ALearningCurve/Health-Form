@@ -4,10 +4,16 @@
     "Common Cold" => 0,
     "Fever" => 0,
     "Flu" => 0,
-    "Allergies" => 0,
     "Pneumonia" => 0,
+    "Whooping Cough" => 0,
     "AAAAAAAAAAAAAAAAAAAA" => 0,
   ];
+
+
+
+
+
+
 
   // AAAAAAAAAAAAAAAAAAAA substitute for undetermined thing that i will research later
 
@@ -40,11 +46,15 @@
 
   //mouth
   if ($_POST["cough"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Common Cold"] += 1;
+      $diagnosis["Flu"] += 1;
+      $diagnosis["Pneumonia"] += 1;
+      $diagnosis["Whooping Cough"] += 1;
     }
 
-  if ($_POST["itchythroat"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+  if ($_POST["itchysorethroat"] == "y") {
+      $diagnosis["Common Cold"] += 1;
+      $diagnosis["Flu"] += 1;
     }
 
   if ($_POST["drymouth"] == "y") {
@@ -64,7 +74,7 @@
     }
 
   if ($_POST["vomit"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Pneumonia"] += 1;
     }
 
   if ($_POST["appetite"] == "y") {
@@ -86,7 +96,7 @@
     }
 
   if ($_POST["redeyes"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Whooping Cough"] += 1;
     }
 
   if ($_POST["itchyeyes"] == "y") {
@@ -94,7 +104,7 @@
     }
 
   if ($_POST["wateryeyes"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Whooping Cough"] += 1;
     }
 
   if ($_POST["visionloss"] == "y") {
@@ -120,7 +130,7 @@
 
   //head
   if ($_POST["memory"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Pneumonia"] += 1;
     }
 
   if ($_POST["dizzy"] == "y") {
@@ -136,7 +146,8 @@
     }
 
   if ($_POST["headache"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Common Cold"] += 1;
+      $diagnosis["Flu"] += 1;
     }
 
   if ($_POST["numb"] == "y") {
@@ -144,13 +155,16 @@
     }
 
   if ($_POST["fever"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Common Cold"] += 1;
+      $diagnosis["Flu"] += 1;
+      $diagnosis["Pneumonia"] += 1;
+      $diagnosis["Whooping Cough"] += 1;
     }
 
 
   //nose
   if ($_POST["breathing"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Pneumonia"] += 1;
     }
 
   if ($_POST["misshapen"] == "y") {
@@ -158,11 +172,13 @@
     }
 
   if ($_POST["runny"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Common Cold"] += 1;
     }
 
   if ($_POST["stuffy"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Common Cold"] += 1;
+      $diagnosis["Flu"] += 1;
+      $diagnosis["Whooping Cough"] += 1;
     }
 
   if ($_POST["bruising"] == "y") {
