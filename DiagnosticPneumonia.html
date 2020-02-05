@@ -40,18 +40,38 @@
 
 
     <div class="container my-3">
-        <h1> Preliminary Analysis </h1>
-        <h2> Check off all the symptoms you are experiencing. </h2>
+        <!--I don't want to put the name of the disease here bc that would bias them but also idk what elst to title it-->
+        <h1> Extended Analysis Form P </h1>
+
+        <h2> Please answer the questions below </h2>
 
         <form class="my-5 needs-validation" method="post" action="checker1.php" novalidate>
 
-            <h4 class="mt-4"> Check off all the symptoms you are experiencing </h4>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="fatigue"value="y" >
-                <label class="form-check-label" for="exampleRadios1">
-                    fatigue
-                </label>
-            </div>
+            <!--Q1-->
+            <h4 class="mt-4"> Choose one of the following </h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3"value="majorFatigue" required>
+                    <label class="form-check-label" for="exampleRadios1">
+                        I experience major fatigue (A lot more than usual)
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" value="minorFatigue" required>
+                    <label class="form-check-label" for="exampleRadios1">
+                        I experience mild fatigue (Slightly more that usual)
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" value="noFatigue" required>
+                    <label class="form-check-label" for="exampleRadios1">
+                        I do not experience more fatigue that usual
+                    </label>
+                    <!-- Put this div below each of the last questios -->
+                    <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
+                </div>
+            <!-- More symptoms below but I didn't want to do it all and then have to change it
 
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="chills" value="y" >
@@ -78,11 +98,7 @@
                 <input class="form-check-input" type="radio" name="shortBreath" value="y" >
                 <label class="form-check-label" for="exampleRadios1">
                     shortness of breath
-                </label>
-
-                <!-- Put this div below each of the last questions -->
-                <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please Select One of the Above</em></font></div>
-            </div>
+                </label> -->
 
         </form>
     </div>
