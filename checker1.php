@@ -66,19 +66,11 @@
     }
 
   if ($_POST["drymouth"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
-    }
-
-  if ($_POST["toothache"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Dehydration"] += 1;
     }
 
   if ($_POST["bumpytongue"] == "y") {
       $diagnosis["Tuberculosis"] += 1;
-    }
-
-  if ($_POST["coughingblood"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
     }
 
   if ($_POST["vomit"] == "y") {
@@ -154,10 +146,11 @@
       $diagnosis["Allergies"] += 1;
       $diagnosis["Eczema"] += 1;
       $diagnosis["Concussion"] += 1;
+      $diagnosis["Anemia"] += 1;
     }
 
   if ($_POST["hair"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Thyroid Disease"] += 1;
     }
 
   if ($_POST["bumps"] == "y") {
@@ -172,10 +165,11 @@
       $diagnosis["Concussion"] += 1;
       $diagnosis["Ear Infection"] += 1;
       $diagnosis["Glaucoma"] += 1;
+      $diagnosis["Anermia"] += 1;
     }
 
   if ($_POST["numb"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Stroke"] += 1;
     }
 
   if ($_POST["fever"] == "y") {
@@ -196,10 +190,7 @@
   if ($_POST["breathing"] == "y") {
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Allergies"] += 1;
-    }
-
-  if ($_POST["misshapen"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Anemia"] += 1;
     }
 
   if ($_POST["runny"] == "y") {
@@ -212,28 +203,13 @@
       $diagnosis["Whooping Cough"] += 1;
     }
 
-  if ($_POST["bruising"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
-    }
-
-  if ($_POST["swelling"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
-    }
-
   if ($_POST["bloodynose"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
-    }
-
-  if ($_POST["nosedischarge"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
-    }
-
-  if ($_POST["itchynose"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Common Cold"] += 1;
+      $diagnosis["Allergies"] += 1;
     }
 
   if ($_POST["nosepain"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Common Cold"] += 1;
     }
 
 
