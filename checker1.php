@@ -245,4 +245,7 @@
   }
   echo "</ol>";
 
+
+  readfile('DiagnosticPneumonia.html');
+
 ?>
