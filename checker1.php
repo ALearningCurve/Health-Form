@@ -251,13 +251,21 @@
   }
   echo "</ol>";
 
+  function import_html($diagnosis) {
+    foreach (array_keys($diagnosis) as $key){
+      // only shows the ones with likelihood more than 0
+      if ($diagnosis[$key] >0){
+        try {
+          readfile("SpecificDiagnostics/Diagnostic".$key . ".html");
+        } catch (Exception $e) {
+          # TODO Replace this echo with nothing when done
+          echo "No Diagnostic for this disease yet";
 
-  foreach (array_keys($diagnosis) as $key){
-    // only shows the ones with likelihood more than 0
-    if ($diagnosis[$key] >0){
-        readfile("SpecificDiagnostics/Diagnostic".$key . ".html");
+        }
+      }
     }
   }
+  @import_html($diagnosis);
 
 
 ?>
