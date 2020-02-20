@@ -33,6 +33,7 @@
   // ears
   if ($_POST["earache"] == "y") {
     $diagnosis["Middle Ear Infection"] += 1;
+    $diagnosis["Sinus Infection"] += 1;
   }
 
   if ($_POST["hearingloss"] == "y") {
@@ -55,6 +56,8 @@
 
   if ($_POST["ringing"] == "y") {
       $diagnosis["Concussion"] += 1;
+      $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Sinus Infection"] += 1;
     }
 
 
@@ -163,6 +166,7 @@
   //head
   if ($_POST["memory"] == "y") {
       $diagnosis["Pneumonia"] += 1;
+      $diagnosis["Concussion"] += 1;
     }
 
   if ($_POST["dizzy"] == "y") {
@@ -217,6 +221,9 @@
       }
 
 
+
+
+
   //nose
   if ($_POST["breathing"] == "y") {
       $diagnosis["Pneumonia"] += 1;
@@ -257,6 +264,7 @@
 
   // Output all of the diagnosis and the value in dict
   // find the most likely diagnosis based on highest # in dict
+  /*
   echo "<ol>";
   foreach (array_keys($diagnosis) as $key){
     // only shows the ones with likelihood more than 0
@@ -265,6 +273,7 @@
     }
   }
   echo "</ol>";
+  */
 
   function import_html($diagnosis) {
     foreach (array_keys($diagnosis) as $key){
