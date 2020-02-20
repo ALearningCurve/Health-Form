@@ -14,15 +14,10 @@
     "Concussion" => 0,
     "Middle Ear Infection" => 0,
     "Glaucoma" => 0,
-
-
-
     "Sinus Infection" => 0,
     "Anemia" => 0,
+    "Dehydration"
     "Hypothyroidism" => 0,
-
-
-    "Dehydration" => 0,
 
 
     "AAAAAAAAAAAAAAAAAAAA" => 0,
