@@ -247,6 +247,12 @@
   echo "</ol>";
 
 
-  readfile('DiagnosticPneumonia.html');
+  foreach (array_keys($diagnosis) as $key){
+    // only shows the ones with likelihood more than 0
+    if ($diagnosis[$key] >0){
+        readfile("SpecificDiagnostics/Diagnostic".$key . ".html");
+    }
+  }
+
 
 ?>
