@@ -50,6 +50,7 @@
 
   if ($_POST["clog"] == "y") {
       $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Sinus Infection"] += 1;
     }
 
   if ($_POST["itchyear"] == "y") {
@@ -69,6 +70,7 @@
       $diagnosis["Whooping Cough"] += 1;
       $diagnosis["Tuberculosis"] += 1;
       $diagnosis["Allergies"] += 1;
+      $diagnosis["Sinus Infection"] += 1;
     }
 
   if ($_POST["itchysorethroat"] == "y") {
@@ -178,7 +180,8 @@
       $diagnosis["Brain Tumor"] += 1;
       $diagnosis["Concussion"] += 1;
       $diagnosis["Glaucoma"] += 1;
-      $diagnosis["Anermia"] += 1;
+      $diagnosis["Anemia"] += 1;
+      $diagnosis["Sinus Infection"] += 1;
     }
 
   if ($_POST["numb"] == "y") {
@@ -192,6 +195,7 @@
       $diagnosis["Whooping Cough"] += 1;
       $diagnosis["Tuberculosis"] += 1;
       $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Sinus Infection"] += 1;
     }
 
   if ($_POST["itchyskin"] == "y") {
@@ -209,6 +213,7 @@
 
   if ($_POST["runny"] == "y") {
       $diagnosis["Common Cold"] += 1;
+      $diagnosis["Sinus Infection"] += 1;
     }
 
   if ($_POST["stuffy"] == "y") {
@@ -216,6 +221,7 @@
       $diagnosis["Flu"] += 1;
       $diagnosis["Whooping Cough"] += 1;
       $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Sinus Infection"] += 1;
     }
 
   if ($_POST["bloodynose"] == "y") {
