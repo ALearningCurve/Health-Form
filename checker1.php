@@ -7,7 +7,8 @@
     "Pneumonia" => 0,
     "Whooping Cough" => 0,
     "Tuberculosis" => 0,
-    "Allergies" => 0,
+    "Seasonal Allergies" => 0,
+    "Non seasonal Allergies" => 0,
     "Eczema" => 0,
     "Brain Aneurysm" => 0,
     "Brain Tumor" => 0,
@@ -17,15 +18,16 @@
     "Sinus Infection" => 0,
     "Anemia" => 0,
     "Dehydration" => 0,
-
-
-    "AAAAAAAAAAAAAAAAAAAA" => 0,
+    "Hypothyroidism" => 0,
+    "Rheumatoid arthritis" => 0,
+    "Tetanus" => 0,
+    "Gingivitis" => 0,
+    "Blepharitis" => 0,
+    "Uveitis" => 0,
   ];
 
 
 
-
-  // AAAAAAAAAAAAAAAAAAAA substitute for undetermined thing that i will research later
 
 
   // ears
@@ -48,7 +50,7 @@
     }
 
   if ($_POST["itchyear"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
     }
 
   if ($_POST["ringing"] == "y") {
@@ -63,13 +65,14 @@
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Whooping Cough"] += 1;
       $diagnosis["Tuberculosis"] += 1;
-      $diagnosis["Allergies"] += 1;
       $diagnosis["Sinus Infection"] += 1;
     }
 
   if ($_POST["itchysorethroat"] == "y") {
       $diagnosis["Common Cold"] += 1;
       $diagnosis["Flu"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
+      $diagnosis["Non seasonal Allergies"] += 1;
     }
 
   if ($_POST["drymouth"] == "y") {
@@ -82,25 +85,30 @@
 
   if ($_POST["vomit"] == "y") {
       $diagnosis["Pneumonia"] += 1;
-      $diagnosis["Allergies"] += 1;
       $diagnosis["Eczema"] += 1;
       $diagnosis["Brain Aneurysm"] += 1;
       $diagnosis["Concussion"] += 1;
       $diagnosis["Glaucoma"] += 1;
       $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Non seasonal Allergies"] += 1;
     }
 
   if ($_POST["appetite"] == "y") {
         $diagnosis["Tuberculosis"] += 1;
+        $diagnosis["Hypothyroidism"] += 1;
+        $diagnosis["Rheumatoid arthritis"] += 1;
       }
 
   if ($_POST["tightjaw"] == "y") {
-        $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+        $diagnosis["Rheumatoid arthritis"] += 1;
+        $diagnosis["Tetanus"] += 1;
+
       }
 
   if ($_POST["gumpain"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Gingivitis"] += 1;
     }
+
 
 
 
@@ -108,38 +116,43 @@
   //eyes
   if ($_POST["eyepain"] == "y") {
       $diagnosis["Glaucoma"] += 1;
+      $diagnosis["Blepharitis"] += 1;
+      $diagnosis["Uveitis"] += 1;
     }
 
   if ($_POST["redeyes"] == "y") {
       $diagnosis["Whooping Cough"] += 1;
-      $diagnosis["Allergies"] += 1;
       $diagnosis["Glaucoma"] += 1;
+      $diagnosis["Blepharitis"] += 1;
+      $diagnosis["Uveitis"] += 1;
     }
 
   if ($_POST["itchyeyes"] == "y") {
-      $diagnosis["Allergies"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
+      $diagnosis["Non seasonal Allergies"] += 1;
     }
 
   if ($_POST["wateryeyes"] == "y") {
       $diagnosis["Whooping Cough"] += 1;
-      $diagnosis["Allergies"] += 1;
+      $diagnosis["Non seasonal Allergies"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
+      $diagnosis["Blepharitis"] += 1;
+
     }
 
   if ($_POST["visionloss"] == "y") {
       $diagnosis["Brain Aneurysm"] += 1;
       $diagnosis["Glaucoma"] += 1;
+      $diagnosis["Uveitis"] += 1;
     }
 
   if ($_POST["twitch"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Blepharitis"] += 1;
+      $diagnosis["Uveitis"] += 1;
     }
 
   if ($_POST["droop"] == "y") {
       $diagnosis["Brain Aneurysm"] += 1;
-    }
-
-  if ($_POST["eyedischarge"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
     }
 
   if ($_POST["doublevision"] == "y") {
@@ -153,18 +166,20 @@
     }
 
   if ($_POST["dizzy"] == "y") {
-      $diagnosis["Allergies"] += 1;
       $diagnosis["Eczema"] += 1;
       $diagnosis["Concussion"] += 1;
       $diagnosis["Anemia"] += 1;
+      $diagnosis["Dehydration"] += 1;
+      $diagnosis["Non seasonal Allergies"] += 1;
     }
 
   if ($_POST["hair"] == "y") {
       $diagnosis["Thyroid Disease"] += 1;
+      $diagnosis["Hypothyroidism"] += 1;
     }
 
   if ($_POST["bumps"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Non seasonal Allergies"] += 1;
     }
 
   if ($_POST["headache"] == "y") {
@@ -176,6 +191,7 @@
       $diagnosis["Glaucoma"] += 1;
       $diagnosis["Anemia"] += 1;
       $diagnosis["Sinus Infection"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
     }
 
   if ($_POST["numb"] == "y") {
@@ -190,24 +206,28 @@
       $diagnosis["Tuberculosis"] += 1;
       $diagnosis["Middle Ear Infection"] += 1;
       $diagnosis["Sinus Infection"] += 1;
+      $diagnosis["Rheumatoid arthritis"] += 1;
+      $diagnosis["Tetanus"] += 1;
+
     }
 
   if ($_POST["itchyskin"] == "y") {
-        $diagnosis["Allergies"] += 1;
         $diagnosis["Eczema"] += 1;
+        $diagnosis["Non seasonal Allergies"] += 1;
       }
 
 
   //nose
   if ($_POST["breathing"] == "y") {
       $diagnosis["Pneumonia"] += 1;
-      $diagnosis["Allergies"] += 1;
       $diagnosis["Anemia"] += 1;
+      $diagnosis["Non seasonal Allergies"] += 1;
     }
 
   if ($_POST["runny"] == "y") {
       $diagnosis["Common Cold"] += 1;
       $diagnosis["Sinus Infection"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
     }
 
   if ($_POST["stuffy"] == "y") {
@@ -216,11 +236,12 @@
       $diagnosis["Whooping Cough"] += 1;
       $diagnosis["Middle Ear Infection"] += 1;
       $diagnosis["Sinus Infection"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
     }
 
   if ($_POST["bloodynose"] == "y") {
       $diagnosis["Common Cold"] += 1;
-      $diagnosis["Allergies"] += 1;
+
     }
 
   if ($_POST["nosepain"] == "y") {
