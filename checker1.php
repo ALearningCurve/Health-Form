@@ -12,8 +12,19 @@
     "Brain Aneurysm" => 0,
     "Brain Tumor" => 0,
     "Concussion" => 0,
-    "Ear Infection" => 0,
+    "Middle Ear Infection" => 0,
     "Glaucoma" => 0,
+
+
+
+    "Sinus Infection" => 0,
+    "Anemia" => 0,
+    "Hypothyroidism" => 0,
+
+
+    "Dehydration" => 0,
+
+
     "AAAAAAAAAAAAAAAAAAAA" => 0,
   ];
 
@@ -25,20 +36,20 @@
 
   // ears
   if ($_POST["earache"] == "y") {
-    $diagnosis["Ear Infection"] += 1;
+    $diagnosis["Middle Ear Infection"] += 1;
   }
 
   if ($_POST["hearingloss"] == "y") {
       $diagnosis["Brain Tumor"] += 1;
-      $diagnosis["Ear Infection"] += 1;
+      $diagnosis["Middle Ear Infection"] += 1;
     }
 
   if ($_POST["eardischarge"] == "y") {
-      $diagnosis["Ear Infection"] += 1;
+      $diagnosis["Middle Ear Infection"] += 1;
     }
 
   if ($_POST["clog"] == "y") {
-      $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
+      $diagnosis["Middle Ear Infection"] += 1;
     }
 
   if ($_POST["itchyear"] == "y") {
@@ -88,6 +99,7 @@
       $diagnosis["Brain Aneurysm"] += 1;
       $diagnosis["Concussion"] += 1;
       $diagnosis["Glaucoma"] += 1;
+      $diagnosis["Middle Ear Infection"] += 1;
     }
 
   if ($_POST["appetite"] == "y") {
@@ -101,6 +113,8 @@
   if ($_POST["gumpain"] == "y") {
       $diagnosis["AAAAAAAAAAAAAAAAAAAA"] += 1;
     }
+
+
 
 
   //eyes
@@ -170,7 +184,6 @@
       $diagnosis["Brain Aneurysm"] += 1;
       $diagnosis["Brain Tumor"] += 1;
       $diagnosis["Concussion"] += 1;
-      $diagnosis["Ear Infection"] += 1;
       $diagnosis["Glaucoma"] += 1;
     }
 
@@ -184,6 +197,7 @@
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Whooping Cough"] += 1;
       $diagnosis["Tuberculosis"] += 1;
+      $diagnosis["Middle Ear Infection"] += 1;
     }
 
   if ($_POST["itchyskin"] == "y") {
@@ -210,6 +224,7 @@
       $diagnosis["Common Cold"] += 1;
       $diagnosis["Flu"] += 1;
       $diagnosis["Whooping Cough"] += 1;
+      $diagnosis["Middle Ear Infection"] += 1;
     }
 
   if ($_POST["bruising"] == "y") {
