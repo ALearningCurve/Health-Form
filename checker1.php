@@ -251,6 +251,11 @@
 
     }
 
+  if ($_POST["itchynose"] == "y") {
+      $diagnosis["Common Cold"] += 1;
+      $diagnosis["Seasonal Allergies"] += 1;
+    }
+
   if ($_POST["nosepain"] == "y") {
       $diagnosis["Common Cold"] += 1;
     }
