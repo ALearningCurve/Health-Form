@@ -6,8 +6,8 @@
   ];
 
 // This gets the previous $_POST from the last form
-$str_var = $_POST["str_var"];
-$array_var = unserialize(base64_decode($str_var));
+$prev_post = $_POST["prev_post"];
+$prev_post = unserialize(base64_decode($prev_post));
 
 
 

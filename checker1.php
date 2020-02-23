@@ -265,127 +265,124 @@
 
   // Sort the arrrrrrrr by the values in the arr in descending order
   arsort($diagnosis);
-
-
   // Output all of the diagnosis and the value in dict
   // find the most likely diagnosis based on highest # in dict
-
-  echo "<ol>";
-  foreach (array_keys($diagnosis) as $key){
-    // only shows the ones with likelihood more than 0
-    if ($diagnosis[$key] >0){
-        echo "<li>". $key ." with number weight ". $diagnosis[$key] ."</li>";
-    }
-  }
-  echo "</ol>";
-
+  // echo "<ol>";
+  // foreach (array_keys($diagnosis) as $key){
+  //   // only shows the ones with likelihood more than 0
+  //   if ($diagnosis[$key] >0){
+  //       echo "<li>". $key ." with number weight ". $diagnosis[$key] ."</li>";
+  //   }
+  // }
+  // echo "</ol>";
 ?>
-<DOCTYPE html>
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Diagnostic</title>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diagnostic</title>
 
-        <!-- This is the bootstrap css file --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <!-- This is the local css file --> <link rel="stylesheet" href="/css/diagnostic2.css">
-    </head>
+    <!-- This is the bootstrap css file --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- This is the local css file --> <link rel="stylesheet" href="/css/diagnostic2.css">
+</head>
 
-    <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <a class="navbar-brand" href="index.html">
-            <img id="health-icon" src="images/health-icon.png" width="30" height="30" alt="">
-            ASAP Analysis
-        </a>
+    <a class="navbar-brand" href="index.html">
+        <img id="health-icon" src="images/health-icon.png" width="30" height="30" alt="">
+        ASAP Analysis
+    </a>
 
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
 
 
 
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+  <!-- Here the questions will inserted from the other html files fr the specific diagnostics -->
+  <div class="container my-3">
+    <h1> Extended Analysis</h1>
+    <h2> Please answer the questions below. </h2>
+    <form class="my-5 needs-validation" method="post" action="FinalChecker.php" novalidate>
+
+    <!-- This hidden field carries over the results from the first form to the second one -->
+    <input type="hidden"
+      id="prev_post"
+      name="prev_post"
+      value="<?php print base64_encode(serialize($_POST)) ?>">
+  <?php
+    /**
+    * Uses the $diagnosis array to give out secondary forms for each
+    * Diesease with over one question found
+    */
+    function import_html($diagnosis) {
+      $repeated_values = array();
+      $not_repeated = 1;
+      foreach (array_keys($diagnosis) as $key){
+
+        // only shows the ones with likelihood more than 0
+
+        if ($diagnosis[$key] >0){
+          $file = fopen("SpecificDiagnostics/Diagnostic".$key.".html", "r");
+
+          // This if is mandatory as fopen() returns false for a non existant file
+          // Otherwise the program would infinitly loop and freeze up the server
+          if ($file) {
+            while(!feof($file)) {
+              $line = fgets($file);
+              // Checks to see if the block is repeated
+              foreach ($repeated_values as $value){
+                if (strpos($line, "{" . $value . "}-->")) {
+                  $not_repeated = 0;
+                }
+              }
 
 
-    <div class="container my-3">
+              if ($not_repeated) {
+                $start =  strpos($line, "{");
+                $end =  strpos($line, "}-->");
+                if ($start and $end){
+                  $repeated_values[] = substr ($line, $start+1, $end-$start-1);
+                }
+              }
 
-        <h1> Extended Analysis</h1>
 
-        <h2> Please answer the questions below. </h2>
-
-        <form class="my-5 needs-validation" method="post" action="FinalChecker.php" novalidate>
-
-        <input type="hidden"
-          id="str_var"
-          name="str_var"
-          value="<?php print base64_encode(serialize($_POST)) ?>">
-<?php
-  function import_html($diagnosis) {
-    $repeated_values = array();
-    $not_repeated = 1;
-    foreach (array_keys($diagnosis) as $key){
-
-      // only shows the ones with likelihood more than 0
-
-      if ($diagnosis[$key] >0){
-        $file = fopen("SpecificDiagnostics/Diagnostic".$key.".html", "r");
-
-        // This if is mandatory as fopen() returns false for a non existant file
-        // Otherwise the program would infinitly loop and freeze up the server
-        if ($file) {
-          while(!feof($file)) {
-            $line = fgets($file);
-            // Checks to see if the block is repeated
-            foreach ($repeated_values as $value){
-              if (strpos($line, "{" . $value . "}-->")) {
-                $not_repeated = 0;
+              // Gives the question or waits until the end of the set to start giving again
+              if ($not_repeated == 1) {
+                echo $line ;
+              } else if (strpos($line, "|end|-->")) {
+                $not_repeated = 1;
               }
             }
-
-
-            if ($not_repeated) {
-              $start =  strpos($line, "{");
-              $end =  strpos($line, "}-->");
-              if ($start and $end){
-                $repeated_values[] = substr ($line, $start+1, $end-$start-1);
-              }
-            }
-
-
-            // Gives the question or waits until the end of the set to start giving again
-            if ($not_repeated == 1) {
-              echo $line ;
-            } else if (strpos($line, "|end|-->")) {
-              $not_repeated = 1;
-            }
+          fclose($file);
           }
-        fclose($file);
         }
       }
+      // Echos out all of the values that have been asked already (just for testing)
+      //foreach ($repeated_values as $value){echo "<h1>" . $value . "</h1>";}
+
     }
-    // Echos out all of the values that have been asked already (just for testing)
-    //foreach ($repeated_values as $value){echo "<h1>" . $value . "</h1>";}
-
-  }
-  @import_html($diagnosis);
+    @import_html($diagnosis);
 
 
-?>
-<button type="submit" class="btn btn-secondary my-3">Submit!</button>
+  ?>
+  <button type="submit" class="btn btn-secondary my-3">Submit!</button>
 </form>
 </div>
 
