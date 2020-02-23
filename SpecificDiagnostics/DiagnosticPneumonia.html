@@ -1,54 +1,6 @@
-<DOCTYPE html>
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Diagnostic</title>
-
-        <!-- This is the bootstrap css file --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <!-- This is the local css file --> <link rel="stylesheet" href="/css/diagnostic2.css">
-    </head>
-
-    <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-        <a class="navbar-brand" href="index.html">
-            <img id="health-icon" src="images/health-icon.png" width="30" height="30" alt="">
-            ASAP Analysis
-        </a>
 
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-
-
-
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-
-
-    <div class="container my-3">
-
-        <h1> Extended Analysis</h1>
-
-        <h2> Please answer the questions below. </h2>
-
-        <form class="my-5 needs-validation" method="post" action="FinalChecker.php" novalidate>
-
-            <!--Q1-->
-            <!--fatigue-->
+            <!--Q1 {fatigue}-->
             <h4 class="mt-4"> Do you experience fatigue? </h4>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="fatigue"value="major" required>
@@ -72,7 +24,7 @@
                     <!-- Put this div below each of the last questios -->
                     <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
                 </div>
-
+            <!--Q2 |end|-->
 
 
             <h4 class="mt-4"> Do you experience any type of chills? </h4>
@@ -161,15 +113,3 @@
                 <label class="form-check-label" for="exampleRadios1">
                     shortness of breath
                 </label> -->
-                <button type="submit" class="btn btn-secondary my-3">Submit!</button>
-        </form>
-    </div>
-
-
-
-    <!-- Links to Bootstrap JavaScript files so that the site works-->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
-    </html>
