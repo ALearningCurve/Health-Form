@@ -336,9 +336,9 @@
 <?php
   function import_html($diagnosis) {
     $repeated_values = array();
-    $repeated_values[] = "fatigue";
-    echo $repeated_values[0];
+    $not_repeated = 1;
     foreach (array_keys($diagnosis) as $key){
+
       // only shows the ones with likelihood more than 0
 
       if ($diagnosis[$key] >0){
@@ -348,24 +348,28 @@
         // Otherwise the program would infinitly loop and freeze up the server
         if ($file) {
           while(!feof($file)) {
-            $not_repeated = true;
-            $repeated_to_add = "";
             $line = fgets($file);
-
+            // Checks to see if the block is repeated
             foreach ($repeated_values as $value){
               if (strpos($line, "{" . $repeated_values[0] . "}-->")) {
-                echo "FFFFFFFFF";
-                $not_repeated = false;
+                $not_repeated = 0;
               }
             }
-          
+
             if ($not_repeated) {
-              echo $not_repeated;
-              echo $line ;
+              $start =   strpos($line, "{");
+              $end =   strpos($line, "}-->");
+              if ($start and $end){
+                $repeated_values[] = substr ($line, $start+1, $end-$start-1);
+              }
             }
-            if (strpos($line, "|end|-->")) {
-              $not_repeated = true;
-              echo "eeeeeeee";
+
+
+            // Gives the question or waits until the end of the set to start giving again
+            if ($not_repeated == 1) {
+              echo $line ;
+            } else if (strpos($line, "|end|-->")) {
+              $not_repeated = 1;
             }
           }
         fclose($file);
