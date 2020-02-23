@@ -269,7 +269,7 @@
 
   // Output all of the diagnosis and the value in dict
   // find the most likely diagnosis based on highest # in dict
-  /*
+
   echo "<ol>";
   foreach (array_keys($diagnosis) as $key){
     // only shows the ones with likelihood more than 0
@@ -278,14 +278,22 @@
     }
   }
   echo "</ol>";
-  */
+
 
   function import_html($diagnosis) {
     foreach (array_keys($diagnosis) as $key){
       // only shows the ones with likelihood more than 0
       if ($diagnosis[$key] >0){
         try {
-          readfile("SpecificDiagnostics/Diagnostic".$key . ".html");
+          $file = fopen("SpecificDiagnostics/Diagnostic".$key.".html", "r");
+          // This if is mandatory as fopen() returns false for a non existant file
+          // Otherwise the program would infinitly loop and freeze up the server
+          if ($file) {
+            while(!feof($file)) {
+              echo fgets($file);
+            }
+          fclose($file);
+          }
         } catch (Exception $e) {
           # TODO Replace this echo with nothing when done
           echo "No Diagnostic for this disease yet";
