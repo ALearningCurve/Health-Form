@@ -351,14 +351,15 @@
             $line = fgets($file);
             // Checks to see if the block is repeated
             foreach ($repeated_values as $value){
-              if (strpos($line, "{" . $repeated_values[0] . "}-->")) {
+              if (strpos($line, "{" . $value . "}-->")) {
                 $not_repeated = 0;
               }
             }
 
+
             if ($not_repeated) {
-              $start =   strpos($line, "{");
-              $end =   strpos($line, "}-->");
+              $start =  strpos($line, "{");
+              $end =  strpos($line, "}-->");
               if ($start and $end){
                 $repeated_values[] = substr ($line, $start+1, $end-$start-1);
               }
