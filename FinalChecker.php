@@ -5,9 +5,9 @@
 
   ];
 
-// This gets the previous $_POST from the last form
-$prev_post = $_POST["prev_post"];
-$prev_post = unserialize(base64_decode($prev_post));
+// This gets the previous $_POST diagnosis from the initial form
+$prev_diagnosis = $_POST["prev_diagnosis"];
+$prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
 
 
@@ -21,6 +21,11 @@ $prev_post = unserialize(base64_decode($prev_post));
 
 
 
+  //Add the two diangostic results together to get a sum
+  foreach (array_keys($prev_diagnosis) as $key){
+    $diagnosis[$key] += $prev_diagnosis[$key];
+  }
+
   // Sort the arrrrrrrr by the values in the arr in descending order
   arsort($diagnosis);
 
@@ -28,7 +33,7 @@ $prev_post = unserialize(base64_decode($prev_post));
   // Output all of the diagnosis and the value in dict
   // find the most likely diagnosis based on highest # in dict
 
-  echo "<ol>";
+  echo "<h1> Results </h1> <ol>";
   foreach (array_keys($diagnosis) as $key){
     // only shows the ones with likelihood more than 0
     if ($diagnosis[$key] >0){

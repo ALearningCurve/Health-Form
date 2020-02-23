@@ -323,9 +323,9 @@
 
     <!-- This hidden field carries over the results from the first form to the second one -->
     <input type="hidden"
-      id="prev_post"
-      name="prev_post"
-      value="<?php print base64_encode(serialize($_POST)) ?>">
+      id="prev_diagnosis"
+      name="prev_diagnosis"
+      value="<?php print base64_encode(serialize($diagnosis)) ?>">
   <?php
     /**
     * Uses the $diagnosis array to give out secondary forms for each
