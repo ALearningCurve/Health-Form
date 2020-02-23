@@ -377,7 +377,8 @@
         }
       }
     }
-    foreach ($repeated_values as $value){echo "<h1>" . $value . "</h1>";}
+    // Echos out all of the values that have been asked already (just for testing)
+    //foreach ($repeated_values as $value){echo "<h1>" . $value . "</h1>";}
 
   }
   @import_html($diagnosis);
