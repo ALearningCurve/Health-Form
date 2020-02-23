@@ -281,23 +281,32 @@
 
 
   function import_html($diagnosis) {
+    $repeated_values = array();
+    $repeated_values[] = "fatigue";
     foreach (array_keys($diagnosis) as $key){
       // only shows the ones with likelihood more than 0
-      if ($diagnosis[$key] >0){
-        try {
-          $file = fopen("SpecificDiagnostics/Diagnostic".$key.".html", "r");
-          // This if is mandatory as fopen() returns false for a non existant file
-          // Otherwise the program would infinitly loop and freeze up the server
-          if ($file) {
-            while(!feof($file)) {
-              echo fgets($file);
-            }
-          fclose($file);
-          }
-        } catch (Exception $e) {
-          # TODO Replace this echo with nothing when done
-          echo "No Diagnostic for this disease yet";
 
+      if ($diagnosis[$key] >0){
+        $file = fopen("SpecificDiagnostics/Diagnostic".$key.".html", "r");
+
+        // This if is mandatory as fopen() returns false for a non existant file
+        // Otherwise the program would infinitly loop and freeze up the server
+        if ($file) {
+          while(!feof($file)) {
+            $not_repeated = true;
+            $line = fgets($file);
+
+            foreach ($repeated_values as $value){
+              if (strpos($line, $repeated_values[0])) {
+                $not_repeated = false;
+              }
+            }
+
+            if ($not_repeated) {
+              echo $line ;
+            }
+          }
+        fclose($file);
         }
       }
     }
