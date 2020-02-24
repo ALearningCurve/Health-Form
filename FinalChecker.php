@@ -11,11 +11,14 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
 
 
-   // pneumonia
 
-  if ($_POST["fatigue"] == "none") {
+  if ($_POST["fatigue"] == "major") {
     $diagnosis["pneumonia"] += 1;
   }
+  if ($_POST["fatigue"] == "minor") {
+      $diagnosis["pneumonia"] += 0.5;
+  }
+
 
 
 
