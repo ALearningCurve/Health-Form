@@ -19,10 +19,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["fatigue"] == "major") {
     $diagnosis["Pneumonia"] += 1;
     $diagnosis["Anemia"] += 1;
+    $diagnosis["Concussion"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
     $diagnosis["Pneumonia"] += 0.5;
     $diagnosis["Anemia"] += 0.5;
+    $diagnosis["Concussion"] += 0.5;
   }
 
 
@@ -103,10 +105,31 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["speech"] == "unable") {
      $diagnosis["Stroke"] += 1;
+     $diagnosis["Concussion"] += 1;
   }
   if ($_POST["speech"] == "slurred") {
      $diagnosis["Stroke"] += 1;
+     $diagnosis["Concussion"] += 0.5;
+
   }
+
+
+//Concussion
+  if ($_POST["confusion"] == "often") {
+     $diagnosis["Concussion"] += 1;
+  }
+  if ($_POST["confusion"] == "sometimes") {
+     $diagnosis["Concussion"] += 0.5;
+  }
+
+
+  if ($_POST["consciousness"] == "yes") {
+     $diagnosis["Concussion"] += 2;
+  }
+  if ($_POST["headtraama"] == "yes") {
+     $diagnosis["Concussion"] += 2;
+  }
+
 
 
   //Add the two diangostic results together to get a sum
