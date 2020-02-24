@@ -50,15 +50,63 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Pneumonia"] += 1;
   }
 
+
+
+//Anemia
   if ($_POST["heartbeat"] == "rapid") {
      $diagnosis["Anemia"] += 1;
   }
 
 
+  if ($_POST["concentration"] == "often") {
+     $diagnosis["Anemia"] += 1;
+  }
+  if ($_POST["concentration"] == "sometimes") {
+     $diagnosis["Anemia"] += 0.5;
+  }
+
+
+  if ($_POST["pale"] == "often") {
+     $diagnosis["Anemia"] += 1;
+  }
+  if ($_POST["pale"] == "sometimes") {
+     $diagnosis["Anemia"] += 0.5;
+  }
+
+  if ($_POST["insomnia"] == "often") {
+     $diagnosis["Anemia"] += 1;
+  }
+  if ($_POST["insomnia"] == "sometimes") {
+     $diagnosis["Anemia"] += 0.5;
+  }
+
+
+  if ($_POST["pica"] == "yes") {
+     $diagnosis["Anemia"] += 1;
+  }
 
 
 
+//Stroke
+  if ($_POST["drooping"] == "yes") {
+     $diagnosis["Stroke"] += 1;
+  }
 
+
+  if ($_POST["raisearms"] == "very") {
+     $diagnosis["Stroke"] += 1;
+  }
+  if ($_POST["raisearms"] == "somewhat") {
+     $diagnosis["Stroke"] += 0.5;
+  }
+
+
+  if ($_POST["speech"] == "unable") {
+     $diagnosis["Stroke"] += 1;
+  }
+  if ($_POST["speech"] == "slurred") {
+     $diagnosis["Stroke"] += 1;
+  }
 
 
   //Add the two diangostic results together to get a sum
