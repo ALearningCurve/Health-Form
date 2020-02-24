@@ -14,7 +14,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
    // pneumonia
 
   if ($_POST["fatigue"] == "none") {
-    $diagnosis["yeet"] += 1;
+    $diagnosis["pneumonia"] += 1;
   }
 
 
