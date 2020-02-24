@@ -11,13 +11,44 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
 
 
+// finished:
+// pneumonia
+
+
 
   if ($_POST["fatigue"] == "major") {
-    $diagnosis["pneumonia"] += 1;
+    $diagnosis["Pneumonia"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
-      $diagnosis["pneumonia"] += 0.5;
+    $diagnosis["Pneumonia"] += 0.5;
   }
+
+
+  if ($_POST["chills"] == "sweatandshake") {
+     $diagnosis["Pneumonia"] += 1;
+  }
+  if ($_POST["chills"] == "shake") {
+     $diagnosis["Pneumonia"] += 0.5;
+  }
+
+
+  if ($_POST["temp"] == "high") {
+  ///////////////////////////////////////////////////////////////////////change this yeet
+     $diagnosis["yeet"] += 1;
+  }
+  if ($_POST["temp"] == "low") {
+     $diagnosis["Pneumonia"] += 1;
+  }
+
+
+  if ($_POST["diarrhea"] == "sometimes") {
+     $diagnosis["Pneumonia"] += 0.5;
+  }
+  if ($_POST["diarrhea"] == "often") {
+     $diagnosis["Pneumonia"] += 1;
+  }
+
+
 
 
 
