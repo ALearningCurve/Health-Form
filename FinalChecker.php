@@ -155,6 +155,6 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
 
 
-
+echo "<li>". "Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a serious condition." ."</li>";
 
 ?>
