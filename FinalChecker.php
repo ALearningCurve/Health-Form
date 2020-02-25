@@ -106,6 +106,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["speech"] == "unable") {
      $diagnosis["Stroke"] += 1;
      $diagnosis["Concussion"] += 1;
+     $diagnosis["Brain Tumor"] += 1;
   }
   if ($_POST["speech"] == "slurred") {
      $diagnosis["Stroke"] += 1;
@@ -117,20 +118,81 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 //Concussion
   if ($_POST["confusion"] == "often") {
      $diagnosis["Concussion"] += 1;
+     $diagnosis["Brain Tumor"] += 1;
+     $diagnosis["Brain Aneurysm"] += 1;
   }
   if ($_POST["confusion"] == "sometimes") {
      $diagnosis["Concussion"] += 0.5;
+     $diagnosis["Brain Aneurysm"] += 0.5;
   }
 
 
   if ($_POST["consciousness"] == "yes") {
      $diagnosis["Concussion"] += 2;
+     $diagnosis["Brain Aneurysm"] += 1;
   }
-  if ($_POST["headtraama"] == "yes") {
+
+  if ($_POST["headtrauma"] == "yes") {
      $diagnosis["Concussion"] += 2;
   }
+  if ($_POST["headtrauma"] == "no") {
+     $diagnosis["Concussion"] += -1;
+  }
+
+  if ($_POST["vomiting"] == "often") {
+     $diagnosis["Concussion"] += 1;
+     $diagnosis["Brain Aneurysm"] += 1;
+  }
+  if ($_POST["vomiting"] == "often") {
+     $diagnosis["Concussion"] += 0.5;
+  }
+
+//Brain Tumor
+  if ($_POST["headachetype"] == "increasing") {
+     $diagnosis["Brain Tumor"] += 1;
+  }
+  if ($_POST["headachetype"] == "sudden") {
+     $diagnosis["Brain Aneurysm"] += 2;
+  }
+
+  if ($_POST["lossfeeling"] == "both") {
+     $diagnosis["Brain Tumor"] += 1;
+  }
+  if ($_POST["lossfeeling"] == "one") {
+     $diagnosis["Brain Tumor"] += 0.5;
+  }
+
+  if ($_POST["balance"] == "yes") {
+     $diagnosis["Brain Tumor"] += 1;
+     $diagnosis["Brain Aneurysm"] += 1;
+  }
+
+  if ($_POST["seizure"] == "yes") {
+     $diagnosis["Brain Tumor"] += 1;
+  }
+  if ($_POST["balance"] == "yes") {
+     $diagnosis["Brain Aneurysm"] += 2;
+  }
+
+  if ($_POST["behavior"] == "great") {
+     $diagnosis["Brain Tumor"] += 1;
+  }
+  if ($_POST["behavior"] == "slight") {
+     $diagnosis["Brain Tumor"] += 0.5;
+  }
 
 
+
+//Brain Aneurysm
+  if ($_POST["stiffneck"] == "yes") {
+     $diagnosis["Brain Aneurysm"] += 2;
+  }
+  if ($_POST["visionchange"] == "double") {
+     $diagnosis["Brain Aneurysm"] += 1;
+  }
+  if ($_POST["visionchange"] == "blurry") {
+     $diagnosis["Brain Aneurysm"] += 1;
+  }
 
   //Add the two diangostic results together to get a sum
   foreach (array_keys($prev_diagnosis) as $key){

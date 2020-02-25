@@ -1,31 +1,4 @@
-            <!--Q1 {fatigue}-->
-            <h4 class="mt-4"> Do you experience fatigue? </h4>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="fatigue" value="major" required>
-                <label class="form-check-label" for="exampleRadios1">
-                    I experience major fatigue (A lot more than usual)
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="fatigue" value="minor" required>
-                <label class="form-check-label" for="exampleRadios1">
-                    I experience mild fatigue (slightly more that usual)
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="fatigue" value="none" required>
-                <label class="form-check-label" for="exampleRadios1">
-                    I do not experience fatigue
-                </label>
-                <!-- Put this div below each of the last questios -->
-                <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
-            </div>
-            <!--Q1 |end|-->
-
-
-            <!--Q2 {confusion}-->
+            <!--Q1 {confusion}-->
             <h4 class="mt-4">Do you ever feel confused or dazed?</h4>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="confusion" value="often" required>
@@ -48,9 +21,79 @@
                 </label>
                 <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
             </div>
+            <!--Q1 |end|-->
+
+            <!--Q2 {headachetype}-->
+            <h4 class="mt-4"> If you have/have had a headache, have you noticed any of the following? </h4>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="headachetype" value="sudden" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    I get sudden or severe headaches.
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="headachetype" value="increase" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    My headache gets increasingly painful or changes headache pattern.
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="headahetype" value="no" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    I do not have headaches or do not experience the above symptoms.
+                </label>
+                <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
+            </div>
             <!--Q2 |end|-->
 
-            <!--Q3 {consciousness}-->
+
+            <!--Q3 {stiffneck}-->
+            <h4 class="mt-4"> Do you experience a stiff neck? </h4>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="stiffneck" value="yes" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    Yes
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="stiffneck" value="noe" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    No
+                </label>
+                <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
+            </div>
+            <!--Q3 |end|-->
+
+            <!--Q4 {visionchange}-->
+            <h4 class="mt-4"> What changes do you experience in your vision? </h4>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visionchange" value="double" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    I experience double vision.
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visionchange" value="blurred" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    I experience blurred vision.
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visionchange" value="none" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    I do not experience any vision changes.
+                </label>
+                <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
+            </div>
+            <!--Q4 |end|-->
+
+            <!--Q5 {consciousness}-->
             <h4 class="mt-4"> Have you recently lost consciousness? </h4>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="consciousness" value="yes" required>
@@ -66,53 +109,27 @@
                 </label>
                 <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
             </div>
-            <!--Q3 |end|-->
+            <!--Q5 |end|-->
 
-
-            <!--Q4 {speech}-->
-            <h4 class="mt-4"> Do you have difficulty speaking? </h4>
+            <!--Q6 {seizure}-->
+            <h4 class="mt-4"> Have you recently (within the last few months) had a seizure? </h4>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="speech" value="unable" required>
-                <label class="form-check-label" for="exampleRadios1">
-                    I am completely unable to speak at times.
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="speech" value="slurred" required>
-                <label class="form-check-label" for="exampleRadios1">
-                    My speech gets slurred at times or I am unable to repeat a phrase.
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="speech" value="none" required>
-                <label class="form-check-label" for="exampleRadios1">
-                    I do not have trouble speaking
-                </label>
-                <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
-            </div>
-            <!--Q4 |end|-->
-
-            <!--Q5 {headtrauma}-->
-            <h4 class="mt-4"> Have you recently had trauma to the head? </h4>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="headtruama" value="yes" required>
+                <input class="form-check-input" type="radio" name="seizure" value="yes" required>
                 <label class="form-check-label" for="exampleRadios1">
                     Yes
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="headtrauma" value="no" required>
+                <input class="form-check-input" type="radio" name="seizure" value="no" required>
                 <label class="form-check-label" for="exampleRadios1">
                     No
                 </label>
                 <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
             </div>
-            <!--Q5 |end|-->
+            <!--Q6 |end|-->
 
-            <!--Q6 {vomiting}-->
+            <!--Q7 {vomiting}-->
             <h4 class="mt-4">How often do you experience both nausea and vomiting?</h4>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="vomiting" value="often" required>
@@ -135,4 +152,5 @@
                 </label>
                 <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
             </div>
-            <!--Q6 |end|-->
+            <!--Q7 |end|-->
+
