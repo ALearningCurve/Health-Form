@@ -142,9 +142,11 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["vomiting"] == "often") {
      $diagnosis["Concussion"] += 1;
      $diagnosis["Brain Aneurysm"] += 1;
+     $diagnosis["Glaucoma"] += 0.5;
   }
   if ($_POST["vomiting"] == "often") {
      $diagnosis["Concussion"] += 0.5;
+     $diagnosis["Glaucoma"] += 0.5;
   }
 
 //Brain Tumor
@@ -153,6 +155,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
   if ($_POST["headachetype"] == "sudden") {
      $diagnosis["Brain Aneurysm"] += 2;
+     $diagnosis["Glaucoma"] += 2;
   }
 
   if ($_POST["lossfeeling"] == "both") {
@@ -192,7 +195,16 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
   if ($_POST["visionchange"] == "blurry") {
      $diagnosis["Brain Aneurysm"] += 1;
+     $diagnosis["Glaucoma"] += 1;
   }
+
+
+//Glaucoma
+  if ($_POST["halos"] == "yes") {
+     $diagnosis["Glaucoma"] += 2;
+  }
+
+
 
   //Add the two diangostic results together to get a sum
   foreach (array_keys($prev_diagnosis) as $key){
