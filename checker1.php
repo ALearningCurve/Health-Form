@@ -229,6 +229,7 @@
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Anemia"] += 1;
       $diagnosis["Non seasonal Allergies"] += 1;
+      $diagnosis["Whooping Cough"] += 1;
     }
 
   if ($_POST["runny"] == "y") {

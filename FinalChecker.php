@@ -20,28 +20,40 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Pneumonia"] += 1;
     $diagnosis["Anemia"] += 1;
     $diagnosis["Concussion"] += 1;
+    $diagnosis["Flu"] += 1;
+    $diagnosis["Whooping Cough"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
     $diagnosis["Pneumonia"] += 0.5;
     $diagnosis["Anemia"] += 0.5;
     $diagnosis["Concussion"] += 0.5;
+    $diagnosis["Common Cold"] += 1;
+    $diagnosis["Flu"] += 0.5;
   }
 
 
   if ($_POST["chills"] == "sweatandshake") {
      $diagnosis["Pneumonia"] += 1;
+     $diagnosis["Flu"] += 1;
+     $diagnosis["Tuberculosis"] += 1;
   }
   if ($_POST["chills"] == "shake") {
      $diagnosis["Pneumonia"] += 0.5;
+     $diagnosis["Flu"] += 0.5;
+     $diagnosis["Tuberculosis"] += 1;
   }
 
 
   if ($_POST["temp"] == "high") {
-  ///////////////////////////////////////////////////////////////////////change this yeet
-     $diagnosis["yeet"] += 1;
+     $diagnosis["Common Cold"] += 0.5;
+     $diagnosis["Flu"] += 2;
+     $diagnosis["Whooping Cough"] += 0.5;
+     $diagnosis["Tuberculosis"] += 1;
   }
   if ($_POST["temp"] == "low") {
      $diagnosis["Pneumonia"] += 1;
+     $diagnosis["Common Cold"] += 1;
+     $diagnosis["Flu"] += 0.5;
   }
 
 
@@ -143,19 +155,26 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Concussion"] += 1;
      $diagnosis["Brain Aneurysm"] += 1;
      $diagnosis["Glaucoma"] += 0.5;
+     $diagnosis["Whooping Cough"] += 1;
   }
   if ($_POST["vomiting"] == "often") {
      $diagnosis["Concussion"] += 0.5;
      $diagnosis["Glaucoma"] += 0.5;
+     $diagnosis["Whooping Cough"] += 1;
   }
 
 //Brain Tumor
   if ($_POST["headachetype"] == "increasing") {
      $diagnosis["Brain Tumor"] += 1;
+     $diagnosis["Flu"] += 1;
   }
   if ($_POST["headachetype"] == "sudden") {
      $diagnosis["Brain Aneurysm"] += 2;
      $diagnosis["Glaucoma"] += 2;
+     $diagnosis["Flu"] += 0.5;
+  }
+  if ($_POST["headachetype"] == "mild") {
+         $diagnosis["Common Cold"] += 1;
   }
 
   if ($_POST["lossfeeling"] == "both") {
@@ -202,6 +221,68 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 //Glaucoma
   if ($_POST["halos"] == "yes") {
      $diagnosis["Glaucoma"] += 2;
+  }
+
+
+
+//Common Cold
+  if ($_POST["bodyache"] == "very") {
+         $diagnosis["Common Cold"] += 0.5;
+         $diagnosis["Flu"] += 1;
+  }
+  if ($_POST["bodyache"] == "slightly") {
+         $diagnosis["Common Cold"] += 1;
+         $diagnosis["Flu"] += 0.5;
+  }
+
+  if ($_POST["coughtype"] == "wet") {
+         $diagnosis["Common Cold"] += 1;
+         $diagnosis["Whooping Cough"] += 1;
+         $diagnosis["Tuberculosis"] += 1;
+  }
+
+  if ($_POST["sneeze"] == "often") {
+         $diagnosis["Common Cold"] += 1;
+         $diagnosis["Seasonal Allergies"] += 1;
+  }
+
+  if ($_POST["sneeze"] == "sometimes") {
+         $diagnosis["Common Cold"] += 1;
+         $diagnosis["Seasonal Allergies"] += 0.5;
+  }
+
+  if ($_POST["malaise"] == "very") {
+         $diagnosis["Common Cold"] += 1;
+         $diagnosis["Flu"] += 1;
+  }
+  if ($_POST["malaise"] == "slightly") {
+         $diagnosis["Common Cold"] += 0.5;
+         $diagnosis["Flu"] += 0.5;
+  }
+
+//Flu
+  if ($_POST["coughtype"] == "dry") {
+         $diagnosis["Flu"] += 1;
+  }
+
+
+//Whooping Cough
+  if ($_POST["whoop"] == "yes") {
+         $diagnosis["Whooping Cough"] += 3;
+  }
+
+//Tuberculosis
+  if ($_POST["lesions"] == "yes") {
+         $diagnosis["Tuberculosis"] += 2;
+
+  }
+  if ($_POST["neckswell"] == "yes") {
+         $diagnosis["Tuberculosis"] += 2;
+
+  }
+  if ($_POST["chestpains"] == "intense") {
+         $diagnosis["Tuberculosis"] += 1;
+
   }
 
 
