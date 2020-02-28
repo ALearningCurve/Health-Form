@@ -46,6 +46,7 @@
       background-color: #004a99;
       color: white;
     }
+
     </style>
 </head>
 
@@ -463,6 +464,15 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Uveitis" => 6,
     ];
 
+    //  Uses the disease sums to give weighted percentage
+    foreach (array_keys($diagnosis) as $key)
+    {
+      if ($sums[$key]) {
+        $float = $diagnosis[$key]/$sums[$key] * 100;
+        $float = round($float, 2);
+        $diagnosis[$key] = $float;
+      }
+    }
     // Sort the arrrrrrrr by the values in the arr in descending order
     arsort($diagnosis);
 
@@ -484,7 +494,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     echo "<br> <h2> Results </h2>";
     echo '<table id="results">';
     echo  '<tr>';
-    echo    '<th>Weight</th>';
+    echo    '<th>Related Questions</th>';
     echo    '<th>Diesease Name</th>';
     echo '</tr>';
     // output data of each row
@@ -492,7 +502,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     {
       if ($diagnosis[$diag] > 0) {
         echo '<tr>';
-        echo  '<td>'.$diagnosis[$diag].'</td>';
+        echo  '<td>'.$diagnosis[$diag].'%</td>';
         echo  '<td>'.$diag.'</td>';
         echo '</tr>';
       }
