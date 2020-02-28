@@ -22,13 +22,15 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Concussion"] += 1;
     $diagnosis["Flu"] += 1;
     $diagnosis["Whooping Cough"] += 1;
+    $diagnosis["Sinus Infection"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
     $diagnosis["Pneumonia"] += 0.5;
     $diagnosis["Anemia"] += 0.5;
     $diagnosis["Concussion"] += 0.5;
-    $diagnosis["Common Cold"] += 1;
+    $diagnosis["Common Cold"] += 0.5;
     $diagnosis["Flu"] += 0.5;
+    $diagnosis["Sinus Infection"] += 0.5;
   }
 
 
@@ -59,9 +61,11 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["diarrhea"] == "sometimes") {
      $diagnosis["Pneumonia"] += 0.5;
+     $diagnosis["Middle Ear Infection"] += 0.5;
   }
   if ($_POST["diarrhea"] == "often") {
      $diagnosis["Pneumonia"] += 1;
+     $diagnosis["Middle Ear Infection"] += 1;
   }
 
 
@@ -184,16 +188,18 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Brain Tumor"] += 0.5;
   }
 
-  if ($_POST["balance"] == "yes") {
-     $diagnosis["Brain Tumor"] += 1;
-     $diagnosis["Brain Aneurysm"] += 1;
+  if ($_POST["balance"] == "some") {
+     $diagnosis["Brain Tumor"] += 0.5;
+     $diagnosis["Brain Aneurysm"] += 0.5;
   }
+
+  if ($_POST["balance"] == "alot") {
+       $diagnosis["Brain Tumor"] += 1;
+       $diagnosis["Brain Aneurysm"] += 1;
+    }
 
   if ($_POST["seizure"] == "yes") {
      $diagnosis["Brain Tumor"] += 1;
-  }
-  if ($_POST["balance"] == "yes") {
-     $diagnosis["Brain Aneurysm"] += 2;
   }
 
   if ($_POST["behavior"] == "great") {
@@ -278,12 +284,49 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
   if ($_POST["neckswell"] == "yes") {
          $diagnosis["Tuberculosis"] += 2;
-
   }
+
   if ($_POST["chestpains"] == "intense") {
          $diagnosis["Tuberculosis"] += 1;
-
   }
+
+
+
+
+  //sinus infection
+  if ($_POST["difficultysmelling"] == "major") {
+         $diagnosis["Sinus Infection"] += 1;
+  }
+
+  if ($_POST["difficultysmelling"] == "minor") {
+         $diagnosis["Sinus Infection"] += 0.5;
+  }
+
+
+  //middle ear infection
+  if ($_POST["irritability"] == "alot") {
+         $diagnosis["Middle Ear Infection"] += 1;
+  }
+  if ($_POST["irritability"] == "some") {
+         $diagnosis["Middle Ear Infection"] += 0.5;
+  }
+
+  if ($_POST["difficultysleeping"] == "alot") {
+         $diagnosis["Middle Ear Infection"] += 1;
+  }
+  if ($_POST["difficultysleeping"] == "some") {
+         $diagnosis["Middle Ear Infection"] += 0.5;
+  }
+
+  if ($_POST["appetite"] == "severe") {
+         $diagnosis["Middle Ear Infection"] += 1;
+  }
+  if ($_POST["appetite"] == "some") {
+         $diagnosis["Middle Ear Infection"] += 0.5;
+  }
+  
+
+
 
 
 
