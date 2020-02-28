@@ -1,3 +1,77 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diagnostic</title>
+
+    <!-- This is the bootstrap css file --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- This is the local css file --> <link rel="stylesheet" href="/css/diagnostic2.css">
+    <style>
+
+    html * {
+      font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    }
+
+    h1 {
+      font-size: 60px;
+    }
+
+    p {
+        font-size: 15px;
+        color: grey;
+    }
+
+    #warning {
+      font-size: 12px;
+      color: red;
+    }
+    #results {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #results td, #results th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #results tr:nth-child(even){background-color: #cce5ff;}
+
+    #results tr:hover {background-color: #006fe6;}
+
+    #results th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #004a99;
+      color: white;
+    }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="index.html">
+        <img id="health-icon" src="images/health-icon.png" width="30" height="30" alt="">
+        ASAP Analysis
+    </a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
 <?php
 
   $diagnosis = [
@@ -358,29 +432,74 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
 
 
-  //Add the two diangostic results together to get a sum
-  foreach (array_keys($prev_diagnosis) as $key){
-    $diagnosis[$key] += $prev_diagnosis[$key];
-  }
 
-  // Sort the arrrrrrrr by the values in the arr in descending order
-  arsort($diagnosis);
-
-
-  // Output all of the diagnosis and the value in dict
-  // find the most likely diagnosis based on highest # in dict
-
-  echo "<h1> Results </h1> <ol>";
-  foreach (array_keys($diagnosis) as $key){
-    // only shows the ones with likelihood more than 0
-    if ($diagnosis[$key] >0){
-        echo "<li>". $key ." with number weight ". $diagnosis[$key] ."</li>";
+    //Add the two diangostic results together to get a sum
+    foreach (array_keys($prev_diagnosis) as $key){
+      $diagnosis[$key] += $prev_diagnosis[$key];
     }
-  }
-  echo "</ol>";
+
+    $sums = [
+      "Common Cold" => 5,
+      "Flu" => 8,
+      "Pneumonia" => 9,
+      "Whooping Cough" =>10,
+      "Tuberculosis" => 8,
+      "Seasonal Allergies" => 5,
+      "Non seasonal Allergies" => 21,
+      "Eczema" => 3, // May need to be updated
+      "Brain Aneurysm" => 8,
+      "Brain Tumor" => 9,
+      "Concussion" => 11,
+      "Middle Ear Infection" => 13,
+      "Glaucoma" => 6,
+      "Sinus Infection" => 8,
+      "Anemia" => 9,
+      "Dehydration" => 8,
+      "Hypothyroidism" => 7,
+      "Rheumatoid arthritis" => 6,
+      "Tetanus" => 6,
+      "Gingivitis" => 10,
+      "Blepharitis" => 14,
+      "Uveitis" => 6,
+    ];
+
+    // Sort the arrrrrrrr by the values in the arr in descending order
+    arsort($diagnosis);
 
 
+    // Output all of the diagnosis and the value in dict
+    // find the most likely diagnosis based on highest # in dict
+    // Deprecated
 
-echo "<li>". "Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a serious condition." ."</li>";
+    // echo "<h1> Results </h1> <ol>";
+    // foreach (array_keys($diagnosis) as $key){
+    //   // only shows the ones with likelihood more than 0
+    //   if ($diagnosis[$key] >0){
+    //       echo "<li>". $key ." with number weight ". $diagnosis[$key] ."</li>";
+    //   }
+    // }
+    // echo "</ol>";
 
-?>
+    // adapt this into the current for loop
+    echo "<br> <h2> Results </h2>";
+    echo '<table id="results">';
+    echo  '<tr>';
+    echo    '<th>Weight</th>';
+    echo    '<th>Diesease Name</th>';
+    echo '</tr>';
+    // output data of each row
+    foreach (array_keys($diagnosis) as $diag)
+    {
+      if ($diagnosis[$diag] > 0) {
+        echo '<tr>';
+        echo  '<td>'.$diagnosis[$diag].'</td>';
+        echo  '<td>'.$diag.'</td>';
+        echo '</tr>';
+      }
+    }
+  ?>
+
+  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a serious condition. </p>
+
+</div>
+</html>
