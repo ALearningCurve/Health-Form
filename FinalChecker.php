@@ -23,6 +23,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Flu"] += 1;
     $diagnosis["Whooping Cough"] += 1;
     $diagnosis["Sinus Infection"] += 1;
+    $diagnosis["Dehydration"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
     $diagnosis["Pneumonia"] += 0.5;
@@ -31,6 +32,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Common Cold"] += 0.5;
     $diagnosis["Flu"] += 0.5;
     $diagnosis["Sinus Infection"] += 0.5;
+    $diagnosis["Dehydration"] += 0.5;
   }
 
 
@@ -73,6 +75,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 //Anemia
   if ($_POST["heartbeat"] == "rapid") {
      $diagnosis["Anemia"] += 1;
+     $diagnosis["Dehydration"] += 1;
   }
 
 
@@ -136,10 +139,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Concussion"] += 1;
      $diagnosis["Brain Tumor"] += 1;
      $diagnosis["Brain Aneurysm"] += 1;
+     $diagnosis["Dehydration"] += 1;
   }
   if ($_POST["confusion"] == "sometimes") {
      $diagnosis["Concussion"] += 0.5;
+     $diagnosis["Brain Tumor"] += 0.5;
      $diagnosis["Brain Aneurysm"] += 0.5;
+     $diagnosis["Dehydration"] += 0.5;
   }
 
 
@@ -324,7 +330,29 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["appetite"] == "some") {
          $diagnosis["Middle Ear Infection"] += 0.5;
   }
-  
+
+  //dehydration
+  if ($_POST["darkurine"] == "very") {
+         $diagnosis["Dehydration"] += 1;
+  }
+  if ($_POST["darkurine"] == "somewhat") {
+         $diagnosis["Dehydration"] += 0.5;
+  }
+
+  if ($_POST["dryskin"] == "very") {
+         $diagnosis["Dehydration"] += 1;
+  }
+  if ($_POST["dryskin"] == "somewhat") {
+         $diagnosis["Dehydration"] += 0.5;
+  }
+
+  if ($_POST["constipation"] == "often") {
+         $diagnosis["Dehydration"] += 1;
+  }
+  if ($_POST["constipation"] == "sometimes") {
+         $diagnosis["Dehydration"] += 0.5;
+  }
+
 
 
 

@@ -2,7 +2,6 @@
 
   $diagnosis = [
     "Common Cold" => 0,
-    "Fever" => 0,
     "Flu" => 0,
     "Pneumonia" => 0,
     "Whooping Cough" => 0,
