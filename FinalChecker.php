@@ -451,7 +451,6 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Tuberculosis" => 8,
       "Seasonal Allergies" => 5,
       "Non seasonal Allergies" => 21,
-      "Eczema" => 3, // May need to be updated
       "Brain Aneurysm" => 8,
       "Brain Tumor" => 9,
       "Concussion" => 11,

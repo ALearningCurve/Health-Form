@@ -8,7 +8,6 @@
     "Tuberculosis" => 0,
     "Seasonal Allergies" => 0,
     "Non seasonal Allergies" => 0,
-    "Eczema" => 0,
     "Brain Aneurysm" => 0,
     "Brain Tumor" => 0,
     "Concussion" => 0,
