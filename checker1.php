@@ -177,7 +177,6 @@
     }
 
   if ($_POST["hair"] == "y") {
-      $diagnosis["Thyroid Disease"] += 1;
       $diagnosis["Hypothyroidism"] += 1;
     }
 
@@ -260,6 +259,10 @@
       $diagnosis["Common Cold"] += 1;
     }
 
+  if ($_POST["halos"] == "y") {
+        $diagnosis["Glaucoma"] += 1;
+      }
+
   $_POST["please_work"] = "please work";
 
 
@@ -315,7 +318,7 @@
   <!-- Here the questions will inserted from the other html files fr the specific diagnostics -->
   <div class="container my-3">
     <h1> Extended Analysis</h1>
-    <h2> Please answer the questions below. </h2>
+    <h2> Please answer the questions below. If you are unsure of how to answer a question, leave it blank.</h2>
     <form class="my-5 needs-validation" method="post" action="FinalChecker.php" novalidate>
 
     <!-- This hidden field carries over the results from the first form to the second one -->

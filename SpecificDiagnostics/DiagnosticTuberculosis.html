@@ -3,14 +3,21 @@
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="lesions" value="yes" required>
                 <label class="form-check-label" for="exampleRadios1">
-                    Yes
+                    Yes, I have lesions and sores on the body
                 </label>
             </div>
 
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="lesions" value="no" required>
                 <label class="form-check-label" for="exampleRadios1">
-                    No
+                    No, I don't have any lesions or sores on my body
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="lesions" value="no" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    I'm not sure if I have lesions or sores on my body
                 </label>
                 <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
             </div>
@@ -21,7 +28,7 @@
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="coughtype" value="dry" required>
                 <label class="form-check-label" for="exampleRadios1">
-                    My cough is dry.
+                    My cough is dry and persistent.
                 </label>
             </div>
 
@@ -29,6 +36,13 @@
                 <input class="form-check-input" type="radio" name="coughtype" value="wet" required>
                 <label class="form-check-label" for="exampleRadios1">
                     My cough produces phlegm.
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="coughtype" value="whoop" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    My cough ends in a high pitched "whoop" sound.
                 </label>
             </div>
 
@@ -42,19 +56,26 @@
             <!--Q2 |end|-->
 
             <!--Q3 {neckswell}-->
-            <h4 class="mt-4"> Do you experience sweating in the neck? </h4>
+            <h4 class="mt-4"> Do you experience swelling in the neck? </h4>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="neckswell" value="yes" required>
+                <input class="form-check-input" type="radio" name="neckswell" value="major" required>
                 <label class="form-check-label" for="exampleRadios1">
-                    Yes
+                    I experience major swelling in the neck
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="neckswell" value="no" required>
+                <input class="form-check-input" type="radio" name="neckswell" value="minor" required>
                 <label class="form-check-label" for="exampleRadios1">
-                    No
+                    I experience minor swelling in the neck
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="neckswell" value="none" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    No, I do not experience any swelling in the neck
                 </label>
                 <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
             </div>

@@ -305,11 +305,6 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
 
 
-//Glaucoma
-  if ($_POST["halos"] == "yes") {
-     $diagnosis["Glaucoma"] += 2;
-  }
-
 
 
 //Common Cold
@@ -326,6 +321,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Common Cold"] += 1;
          $diagnosis["Whooping Cough"] += 1;
          $diagnosis["Tuberculosis"] += 1;
+         $diagnosis["Pneumonia"] += 1;
   }
 
   if ($_POST["sneeze"] == "often") {
@@ -354,7 +350,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
 
 //Whooping Cough
-  if ($_POST["whoop"] == "yes") {
+  if ($_POST["coughtype"] == "whoop") {
          $diagnosis["Whooping Cough"] += 3;
   }
 
@@ -363,8 +359,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Tuberculosis"] += 2;
 
   }
-  if ($_POST["neckswell"] == "yes") {
+  if ($_POST["neckswell"] == "major") {
          $diagnosis["Tuberculosis"] += 2;
+  }
+
+  if ($_POST["neckswell"] == "minor") {
+         $diagnosis["Tuberculosis"] += 1;
   }
 
   if ($_POST["chestpains"] == "intense") {
@@ -440,8 +440,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     }
 
     $sums = [
-      "Common Cold" => 5,
-      "Flu" => 8,
+      "Common Cold" => 18,
+      "Flu" => 16.5,
+
+
+        // tiana fix total point value in coding section of report and poster
+
       "Pneumonia" => 9,
       "Whooping Cough" =>10,
       "Tuberculosis" => 8,
@@ -468,6 +472,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     foreach (array_keys($diagnosis) as $key)
     {
       if ($sums[$key]) {
+        //so things are not right
+
+        echo $key;
+        echo $sums[$key];
+
+
         $float = $diagnosis[$key]/$sums[$key] * 100;
         $float = round($float, 2);
         $diagnosis[$key] = $float;

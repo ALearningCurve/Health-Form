@@ -1,17 +1,31 @@
 
-            <!--Q1 {whoop}-->
-            <h4 class="mt-4"> If you experience coughing, do your coughs end with a high pitched "whoop" sound? </h4>
+            <!--Q1 {coughtype}-->
+            <h4 class="mt-4"> If you experience coughing, how would you characterize your cough? </h4>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="whoop" value="yes" required>
+                <input class="form-check-input" type="radio" name="coughtype" value="dry" required>
                 <label class="form-check-label" for="exampleRadios1">
-                    Yes
+                    My cough is dry and persistent.
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="whoop" value="no" required>
+                <input class="form-check-input" type="radio" name="coughtype" value="wet" required>
                 <label class="form-check-label" for="exampleRadios1">
-                    No
+                    My cough produces phlegm.
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="coughtype" value="whoop" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    My cough ends in a high pitched "whoop" sound.
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="coughtype" value="none" required>
+                <label class="form-check-label" for="exampleRadios1">
+                    None of the above.
                 </label>
                 <div class="invalid-feedback"> <font size="1"><em>&nbsp &nbsp &nbsp Please select one of the answers above</em></font></div>
             </div>
