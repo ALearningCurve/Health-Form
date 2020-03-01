@@ -494,8 +494,8 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     echo "<br> <h2> Results </h2>";
     echo '<table id="results">';
     echo  '<tr>';
-    echo    '<th>Related Questions</th>';
-    echo    '<th>Condition Name</th>';
+    echo    '<th>Likelihood</th>';
+    echo    '<th>Medical Condition Name</th>';
     echo '</tr>';
     // output data of each row
     foreach (array_keys($diagnosis) as $diag)
