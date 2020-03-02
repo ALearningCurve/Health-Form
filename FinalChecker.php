@@ -86,8 +86,6 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
 
 
-// finished:
-// pneumonia
 
 
 
@@ -95,10 +93,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Pneumonia"] += 1;
     $diagnosis["Anemia"] += 1;
     $diagnosis["Concussion"] += 1;
+    $diagnosis["Common Cold"] += 1;
     $diagnosis["Flu"] += 1;
     $diagnosis["Whooping Cough"] += 1;
     $diagnosis["Sinus Infection"] += 1;
     $diagnosis["Dehydration"] += 1;
+    $diagnosis["Hypothyroidism"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
     $diagnosis["Pneumonia"] += 0.5;
@@ -106,15 +106,17 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Concussion"] += 0.5;
     $diagnosis["Common Cold"] += 0.5;
     $diagnosis["Flu"] += 0.5;
+    $diagnosis["Whooping Cough"] += 0.5;
     $diagnosis["Sinus Infection"] += 0.5;
     $diagnosis["Dehydration"] += 0.5;
+    $diagnosis["Hypothyroidism"] += 0.5;
   }
 
 
   if ($_POST["chills"] == "sweatandshake") {
      $diagnosis["Pneumonia"] += 1;
      $diagnosis["Flu"] += 1;
-     $diagnosis["Tuberculosis"] += 1;
+     $diagnosis["Tuberculosis"] += 1.5;
   }
   if ($_POST["chills"] == "shake") {
      $diagnosis["Pneumonia"] += 0.5;
@@ -246,13 +248,14 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["vomiting"] == "often") {
      $diagnosis["Concussion"] += 1;
      $diagnosis["Brain Aneurysm"] += 1;
-     $diagnosis["Glaucoma"] += 0.5;
+     $diagnosis["Glaucoma"] += 1;
      $diagnosis["Whooping Cough"] += 1;
   }
-  if ($_POST["vomiting"] == "often") {
+  if ($_POST["vomiting"] == "sometimes") {
      $diagnosis["Concussion"] += 0.5;
+     $diagnosis["Brain Aneurysm"] += 0.5;
      $diagnosis["Glaucoma"] += 0.5;
-     $diagnosis["Whooping Cough"] += 1;
+     $diagnosis["Whooping Cough"] += 0.5;
   }
 
 //Brain Tumor
@@ -331,7 +334,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Pneumonia"] += 1;
   }
 
-  if ($_POST["sneeze"] == "often") {
+  if ($_POST["sneeze"] == "yes") {
          $diagnosis["Common Cold"] += 1;
          $diagnosis["Mild Allergies"] += 1;
          $diagnosis["Severe Allergies"] += 0.5;
@@ -454,6 +457,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["sinuspain"] == "yes") {
          $diagnosis["Severe Allergies"] += 1;
+         $diagnosis["Sinus Infection"] += 1;
   }
 
   if ($_POST["abdominal"] == "major") {
@@ -484,21 +488,21 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 // tiana fix total point value in coding section of report and poster
 // Setup: "Disease" => FirstCheckerSum + SecondCheckerSum
     $sums = [
-      "Common Cold" => 9+,
-      "Flu" => 5+,
-      "Pneumonia" => 5+,
-      "Whooping Cough" =>6+,
-      "Tuberculosis" => 4+,
-      "Mild Allergies" => 8+,
-      "Severe Allergies" => 8+13,
-      "Brain Aneurysm" => 5+,
-      "Brain Tumor" => 3+,
-      "Concussion" => 5+,
-      "Middle Ear Infection" => 8+,
-      "Glaucoma" => 6+,
-      "Sinus Infection" => 7+,
-      "Anemia" => 3+,
-      "Dehydration" => 2+,
+      "Common Cold" => 9+8,
+      "Flu" => 5+9,
+      "Pneumonia" => 5+6,
+      "Whooping Cough" =>6+6.5,
+      "Tuberculosis" => 4+8.5,
+      "Mild Allergies" => 8+3,
+      "Severe Allergies" => 8+13.5,
+      "Brain Aneurysm" => 5+8,
+      "Brain Tumor" => 3+7,
+      "Concussion" => 5+8,
+      "Middle Ear Infection" => 8+4,
+      "Glaucoma" => 6+4,
+      "Sinus Infection" => 7+3,
+      "Anemia" => 3+6,
+      "Dehydration" => 2+6,
       "Hypothyroidism" => 2+,
       "Rheumatoid arthritis" => 3+,
       "Tetanus" => 2+,

@@ -86,7 +86,6 @@
 
   if ($_POST["vomit"] == "y") {
       $diagnosis["Pneumonia"] += 1;
-      $diagnosis["Eczema"] += 1;
       $diagnosis["Brain Aneurysm"] += 1;
       $diagnosis["Concussion"] += 1;
       $diagnosis["Glaucoma"] += 1;
@@ -162,13 +161,14 @@
 
 
   //head
+
+
   if ($_POST["memory"] == "y") {
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Concussion"] += 1;
     }
 
   if ($_POST["dizzy"] == "y") {
-      $diagnosis["Eczema"] += 1;
       $diagnosis["Concussion"] += 1;
       $diagnosis["Anemia"] += 1;
       $diagnosis["Dehydration"] += 1;
@@ -213,7 +213,6 @@
     }
 
   if ($_POST["itchyskin"] == "y") {
-        $diagnosis["Eczema"] += 1;
         $diagnosis["Severe Allergies"] += 1;
       }
 
