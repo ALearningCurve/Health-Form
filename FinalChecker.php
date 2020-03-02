@@ -139,10 +139,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["diarrhea"] == "sometimes") {
      $diagnosis["Pneumonia"] += 0.5;
      $diagnosis["Middle Ear Infection"] += 0.5;
+     $diagnosis["Severe Allergies"] += 0.5;
   }
   if ($_POST["diarrhea"] == "often") {
      $diagnosis["Pneumonia"] += 1;
      $diagnosis["Middle Ear Infection"] += 1;
+     $diagnosis["Severe Allergies"] += 1;
   }
 
 
@@ -151,8 +153,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["heartbeat"] == "rapid") {
      $diagnosis["Anemia"] += 1;
      $diagnosis["Dehydration"] += 1;
+     $diagnosis["Severe Allergies"] += 1;
   }
-
+  if ($_POST["heartbeat"] == "noanswer") {
+     $diagnosis["Anemia"] += 0.5;
+     $diagnosis["Severe Allergies"] += 0.5;
+  }
 
   if ($_POST["concentration"] == "often") {
      $diagnosis["Anemia"] += 1;
@@ -227,6 +233,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["consciousness"] == "yes") {
      $diagnosis["Concussion"] += 2;
      $diagnosis["Brain Aneurysm"] += 1;
+     $diagnosis["Severe Allergies"] += 1;
   }
 
   if ($_POST["headtrauma"] == "yes") {
@@ -326,12 +333,8 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["sneeze"] == "often") {
          $diagnosis["Common Cold"] += 1;
-         $diagnosis["Seasonal Allergies"] += 1;
-  }
-
-  if ($_POST["sneeze"] == "sometimes") {
-         $diagnosis["Common Cold"] += 1;
-         $diagnosis["Seasonal Allergies"] += 0.5;
+         $diagnosis["Mild Allergies"] += 1;
+         $diagnosis["Severe Allergies"] += 0.5;
   }
 
   if ($_POST["malaise"] == "very") {
@@ -343,9 +346,18 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Flu"] += 0.5;
   }
 
+  if ($_POST["losssmell"] == "minor") {
+         $diagnosis["Common Cold"] += 1;
+         $diagnosis["Mild Allergies"] += 1;
+  }
+
 //Flu
   if ($_POST["coughtype"] == "dry") {
          $diagnosis["Flu"] += 1;
+  }
+  if ($_POST["flushing"] == "yes") {
+         $diagnosis["Flu"] += 1;
+         $diagnosis["Severe Allergies"] += 1;
   }
 
 
@@ -357,8 +369,8 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 //Tuberculosis
   if ($_POST["lesions"] == "yes") {
          $diagnosis["Tuberculosis"] += 2;
-
   }
+
   if ($_POST["neckswell"] == "major") {
          $diagnosis["Tuberculosis"] += 2;
   }
@@ -369,6 +381,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["chestpains"] == "intense") {
          $diagnosis["Tuberculosis"] += 1;
+         $diagnosis["Severe Allergies"] += 1;
   }
 
 
@@ -429,42 +442,69 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
 
 
+//Mild Allergies
+  if ($_POST["hives"] == "minor") {
+         $diagnosis["Mild Allergies"] += 1;
+  }
 
+//Severe Allergies
+  if ($_POST["hives"] == "major") {
+         $diagnosis["Severe Allergies"] += 1;
+  }
 
+  if ($_POST["sinuspain"] == "yes") {
+         $diagnosis["Severe Allergies"] += 1;
+  }
 
+  if ($_POST["abdominal"] == "major") {
+         $diagnosis["Severe Allergies"] += 2;
+  }
 
+  if ($_POST["losssmell"] == "major") {
+         $diagnosis["Severe Allergies"] += 2;
+  }
 
-    //Add the two diangostic results together to get a sum
+  if ($_POST["swallowing"] == "yes") {
+         $diagnosis["Severe Allergies"] += 1;
+  }
+
+  if ($_POST["swelling"] == "major") {
+         $diagnosis["Severe Allergies"] += 1;
+  }
+  if ($_POST["swelling"] == "minor") {
+         $diagnosis["Severe Allergies"] += 0.5;
+  }
+  
+
+    //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
       $diagnosis[$key] += $prev_diagnosis[$key];
     }
 
+// tiana fix total point value in coding section of report and poster
+// Setup: "Disease" => FirstCheckerSum + SecondCheckerSum
     $sums = [
-      "Common Cold" => 18,
-      "Flu" => 16.5,
-
-
-        // tiana fix total point value in coding section of report and poster
-
-      "Pneumonia" => 9,
-      "Whooping Cough" =>10,
-      "Tuberculosis" => 8,
-      "Seasonal Allergies" => 5,
-      "Non seasonal Allergies" => 21,
-      "Brain Aneurysm" => 8,
-      "Brain Tumor" => 9,
-      "Concussion" => 11,
-      "Middle Ear Infection" => 13,
-      "Glaucoma" => 6,
-      "Sinus Infection" => 8,
-      "Anemia" => 9,
-      "Dehydration" => 8,
-      "Hypothyroidism" => 7,
-      "Rheumatoid arthritis" => 6,
-      "Tetanus" => 6,
-      "Gingivitis" => 10,
-      "Blepharitis" => 14,
-      "Uveitis" => 6,
+      "Common Cold" => 9+,
+      "Flu" => 5+,
+      "Pneumonia" => 5+,
+      "Whooping Cough" =>6+,
+      "Tuberculosis" => 4+,
+      "Mild Allergies" => 8+,
+      "Severe Allergies" => 8+13,
+      "Brain Aneurysm" => 5+,
+      "Brain Tumor" => 3+,
+      "Concussion" => 5+,
+      "Middle Ear Infection" => 8+,
+      "Glaucoma" => 6+,
+      "Sinus Infection" => 7+,
+      "Anemia" => 3+,
+      "Dehydration" => 2+,
+      "Hypothyroidism" => 2+,
+      "Rheumatoid arthritis" => 3+,
+      "Tetanus" => 2+,
+      "Gingivitis" => 2+,
+      "Blepharitis" => 4+,
+      "Uveitis" => 4+,
     ];
 
     //  Uses the disease sums to give weighted percentage
@@ -518,7 +558,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     }
   ?>
 
-  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a serious condition. </p>
+  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a Severe condition. </p>
 
 </div>
 </html>
