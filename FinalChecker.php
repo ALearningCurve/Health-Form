@@ -159,10 +159,12 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Anemia"] += 1;
      $diagnosis["Dehydration"] += 1;
      $diagnosis["Severe Allergies"] += 1;
+     $diagnosis["Tetanus"] += 1;
   }
   if ($_POST["heartbeat"] == "noanswer") {
      $diagnosis["Anemia"] += 0.5;
      $diagnosis["Severe Allergies"] += 0.5;
+     $diagnosis["Tetanus"] += 0.5;
   }
 
   if ($_POST["concentration"] == "often") {
@@ -490,15 +492,38 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["swallowing"] == "yes") {
          $diagnosis["Severe Allergies"] += 1;
+         $diagnosis["Tetanus"] += 2;
   }
 
   if ($_POST["swelling"] == "major") {
          $diagnosis["Severe Allergies"] += 1;
+         $diagnosis["Tetanus"] += 1;
   }
   if ($_POST["swelling"] == "minor") {
          $diagnosis["Severe Allergies"] += 0.5;
+         $diagnosis["Tetanus"] += 0.5;
   }
 
+//Tetanus
+  if ($_POST["abdominal"] == "minor") {
+         $diagnosis["Tetanus"] += 1;
+  }
+  if ($_POST["stiffness"] == "very") {
+         $diagnosis["Tetanus"] += 1;
+  }
+  if ($_POST["stiffness"] == "somewhat") {
+         $diagnosis["Tetanus"] += 0.5;
+  }
+  if ($_POST["spasms"] == "yes") {
+         $diagnosis["Tetanus"] += 2;
+  }
+
+  if ($_POST["wound"] == "unsanitary") {
+         $diagnosis["Tetanus"] += 2;
+  }
+  if ($_POST["wound"] == "sanitary") {
+         $diagnosis["Tetanus"] += 0.5;
+  }
 
     //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
@@ -525,7 +550,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
       "Rheumatoid arthritis" => 3+,
-      "Tetanus" => 2+,
+      "Tetanus" => 3+12,
       "Gingivitis" => 2+,
       "Blepharitis" => 4+,
       "Uveitis" => 4+,
