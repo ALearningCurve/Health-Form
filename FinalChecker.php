@@ -122,6 +122,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Pneumonia"] += 0.5;
      $diagnosis["Flu"] += 0.5;
      $diagnosis["Tuberculosis"] += 1;
+     $diagnosis["Hypothyroidism"] += 2;
   }
 
 
@@ -142,11 +143,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Pneumonia"] += 0.5;
      $diagnosis["Middle Ear Infection"] += 0.5;
      $diagnosis["Severe Allergies"] += 0.5;
+     $diagnosis["Hypothyroidism"] += 0.5;
   }
   if ($_POST["diarrhea"] == "often") {
      $diagnosis["Pneumonia"] += 1;
      $diagnosis["Middle Ear Infection"] += 1;
      $diagnosis["Severe Allergies"] += 1;
+     $diagnosis["Hypothyroidism"] += 1;
   }
 
 
@@ -164,6 +167,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["concentration"] == "often") {
      $diagnosis["Anemia"] += 1;
+     $diagnosis["Hypothyroidism"] += 1;
   }
   if ($_POST["concentration"] == "sometimes") {
      $diagnosis["Anemia"] += 0.5;
@@ -295,9 +299,11 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["behavior"] == "great") {
      $diagnosis["Brain Tumor"] += 1;
+     $diagnosis["Hypothyroidism"] += 1;
   }
   if ($_POST["behavior"] == "slight") {
      $diagnosis["Brain Tumor"] += 0.5;
+     $diagnosis["Hypothyroidism"] += 0.5;
   }
 
 
@@ -388,6 +394,16 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
 
 
+  //Hypothyroidism
+  if ($_POST["legswell"] == "yes") {
+         $diagnosis["Hypothyriodism"] += 2;
+  }
+  if ($_POST["coldness"] == "very") {
+         $diagnosis["Hypothyriodism"] += 1;
+  }
+  if ($_POST["coldness"] == "somewhat") {
+         $diagnosis["Hypothyriodism"] += 0.5;
+  }
 
 
   //sinus infection
@@ -432,16 +448,20 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["dryskin"] == "very") {
          $diagnosis["Dehydration"] += 1;
+         $diagnosis["Hypothyroidism"] += 1;
   }
   if ($_POST["dryskin"] == "somewhat") {
          $diagnosis["Dehydration"] += 0.5;
+         $diagnosis["Hypothyroidism"] += 0.5;
   }
 
   if ($_POST["constipation"] == "often") {
          $diagnosis["Dehydration"] += 1;
+         $diagnosis["Hypothyroidism"] += 1;
   }
   if ($_POST["constipation"] == "sometimes") {
          $diagnosis["Dehydration"] += 0.5;
+         $diagnosis["Hypothyroidism"] += 0.5;
   }
 
 
@@ -478,7 +498,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["swelling"] == "minor") {
          $diagnosis["Severe Allergies"] += 0.5;
   }
-  
+
 
     //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
@@ -503,7 +523,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Sinus Infection" => 7+3,
       "Anemia" => 3+6,
       "Dehydration" => 2+6,
-      "Hypothyroidism" => 2+,
+      "Hypothyroidism" => 2+12.5,
       "Rheumatoid arthritis" => 3+,
       "Tetanus" => 2+,
       "Gingivitis" => 2+,
