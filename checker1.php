@@ -105,9 +105,14 @@
 
       }
 
+  if ($_POST["toothache"] == "y") {
+      $diagnosis["Gingivitis"] += 1;
+  }
+
   if ($_POST["gumpain"] == "y") {
       $diagnosis["Gingivitis"] += 1;
     }
+
 
 
 
