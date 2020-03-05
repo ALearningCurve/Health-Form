@@ -348,7 +348,10 @@
         // only shows the ones with likelihood more than 0
 
         if ($diagnosis[$key] >0){
-          $file = fopen("SpecificDiagnostics/Diagnostic".$key.".html", "r");
+          // The space must be removed due to our file naming comvention
+          // As otherwise the keys with spces in them would not have resulting files
+          $spaceless_key = str_replace(" ", "", $key);
+          $file = fopen("SpecificDiagnostics/Diagnostic".$spaceless_key.".html", "r");
 
           // This if is mandatory as fopen() returns false for a non existant file
           // Otherwise the program would infinitly loop and freeze up the server
@@ -388,8 +391,6 @@
 
     }
     @import_html($diagnosis);
-
-
   ?>
   <button type="submit" class="btn btn-secondary my-3">Submit!</button>
 </form>
