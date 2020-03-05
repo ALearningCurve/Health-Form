@@ -440,6 +440,14 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Inner Ear Infection"] += 0.5;
   }
 
+  if ($_POST["drainage"] == "bloody") {
+         $diagnosis["Inner Ear Infection"] += 2;
+  }
+  if ($_POST["drainage"] == "clear") {
+         $diagnosis["Inner Ear Infection"] += 0.5;
+         $diagnosis["Outer Ear Infection"] += 2;
+  }
+
   //dehydration
   if ($_POST["darkurine"] == "very") {
          $diagnosis["Dehydration"] += 1;
@@ -588,6 +596,34 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Blehparitis"] += 1;
   }
 
+//Outer Ear Infection
+  if ($_POST["redear"] == "very") {
+         $diagnosis["Outer Ear Infection"] += 1;
+  }
+  if ($_POST["redear"] == "slightly") {
+         $diagnosis["Outer Ear Infection"] += 0.5;
+  }
+
+  if ($_POST["eardiscomfort"] == "very") {
+         $diagnosis["Outer Ear Infection"] += 2;
+  }
+  if ($_POST["eardiscomfort"] == "slightly") {
+         $diagnosis["Outer Ear Infection"] += 0.5;
+  }
+
+  if ($_POST["earpain"] == "very") {
+         $diagnosis["Outer Ear Infection"] += 1;
+  }
+
+  if ($_POST["earpain"] == "slightly") {
+         $diagnosis["Outer Ear Infection"] += 0.5;
+  }
+
+
+
+
+
+
     //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
       $diagnosis[$key] += $prev_diagnosis[$key];
@@ -606,7 +642,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Brain Aneurysm" => 5+8,
       "Brain Tumor" => 3+7,
       "Concussion" => 5+8,
-      "Inner Ear Infection" => 8+4,
+      "Inner Ear Infection" => 7+8.5,
       "Glaucoma" => 6+4,
       "Sinus Infection" => 7+3,
       "Anemia" => 3+6,
@@ -618,7 +654,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Gingivitis" => 2+7.5,
       "Blepharitis" => 4+11.5,
       "Uveitis" => 4+0,
-      "Outer Ear Infection" => 4+0,
+      "Outer Ear Infection" => 5+7.5,
     ];
 
     //  Uses the disease sums to give weighted percentage
