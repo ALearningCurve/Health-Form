@@ -554,6 +554,40 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Gingivitis"] += 1;
   }
 
+//Blepharitis
+  if ($_POST["greasylids"] == "yes") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+  if ($_POST["redeyelid"] == "very") {
+         $diagnosis["Blehparitis"] += 2;
+  }
+  if ($_POST["redeyelid"] == "slightly") {
+         $diagnosis["Blehparitis"] += 0.5;
+  }
+
+  if ($_POST["flaking"] == "yes") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
+  if ($_POST["light"] == "yes") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
+  if ($_POST["eyelashes"] == "fallout") {
+         $diagnosis["Blehparitis"] += 2;
+  }
+
+  if ($_POST["eyelashes"] == "misdirected") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
+  if ($_POST["tearing"] == "teary") {
+         $diagnosis["Blehparitis"] += 2;
+  }
+  if ($_POST["tearing"] == "dry") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
     //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
       $diagnosis[$key] += $prev_diagnosis[$key];
@@ -583,7 +617,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Gingivitis" => 2+,
       "Tetanus" => 3+12,
       "Gingivitis" => 2+7.5,
-      "Blepharitis" => 4+,
+      "Blepharitis" => 4+11.5,
       "Uveitis" => 4+,
     ];
 
@@ -638,7 +672,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     }
   ?>
 
-  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a Severe condition. </p>
+  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a condition. </p>
 
 </div>
 </html>
