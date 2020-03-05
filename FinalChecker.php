@@ -525,6 +525,35 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Tetanus"] += 0.5;
   }
 
+//Gingivitis
+  if ($_POST["gumbleed"] == "yes") {
+         $diagnosis["Gingivitis"] += 1;
+  }
+  if ($_POST["teethchange"] == "very") {
+         $diagnosis["Gingivitis"] += 1;
+  }
+  if ($_POST["teethchange"] == "slightly") {
+         $diagnosis["Gingivitis"] += 0.5;
+  }
+  if ($_POST["pusgums"] == "often") {
+         $diagnosis["Gingivitis"] += 1;
+  }
+  if ($_POST["pusgums"] == "once") {
+         $diagnosis["Gingivitis"] += 0.5;
+  }
+  if ($_POST["chewpain"] == "often") {
+         $diagnosis["Gingivitis"] += 1;
+  }
+  if ($_POST["chewpain"] == "once") {
+         $diagnosis["Gingivitis"] += 0.5;
+  }
+  if ($_POST["recedinggums"] == "yes") {
+         $diagnosis["Gingivitis"] += 1;
+  }
+  if ($_POST["badbreath"] == "yes") {
+         $diagnosis["Gingivitis"] += 1;
+  }
+
     //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
       $diagnosis[$key] += $prev_diagnosis[$key];
@@ -550,8 +579,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
       "Rheumatoid arthritis" => 3+,
+<<<<<<< HEAD
       "Tetanus" => 3+10,
       "Gingivitis" => 2+,
+=======
+      "Tetanus" => 3+12,
+      "Gingivitis" => 2+7.5,
+>>>>>>> eecd8d2c2f434f3c64de26107a69c1d28f0dbfbe
       "Blepharitis" => 4+,
       "Uveitis" => 4+,
     ];
