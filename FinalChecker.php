@@ -579,13 +579,10 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
       "Rheumatoid arthritis" => 3+,
-<<<<<<< HEAD
       "Tetanus" => 3+10,
       "Gingivitis" => 2+,
-=======
       "Tetanus" => 3+12,
       "Gingivitis" => 2+7.5,
->>>>>>> eecd8d2c2f434f3c64de26107a69c1d28f0dbfbe
       "Blepharitis" => 4+,
       "Uveitis" => 4+,
     ];
