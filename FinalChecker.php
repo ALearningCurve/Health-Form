@@ -578,13 +578,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Anemia" => 3+6,
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
-      "Rheumatoid arthritis" => 3+,
+      "Rheumatoid arthritis" => 3,
       "Tetanus" => 3+10,
-      "Gingivitis" => 2+,
+      "Gingivitis" => 2,
       "Tetanus" => 3+12,
       "Gingivitis" => 2+7.5,
-      "Blepharitis" => 4+,
-      "Uveitis" => 4+,
+      "Blepharitis" => 4,
+      "Uveitis" => 4,
     ];
 
     //  Uses the disease sums to give weighted percentage
