@@ -99,6 +99,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Sinus Infection"] += 1;
     $diagnosis["Dehydration"] += 1;
     $diagnosis["Hypothyroidism"] += 1;
+    $diagnosis["Rheumatoid Arthritis"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
     $diagnosis["Pneumonia"] += 0.5;
@@ -110,6 +111,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Sinus Infection"] += 0.5;
     $diagnosis["Dehydration"] += 0.5;
     $diagnosis["Hypothyroidism"] += 0.5;
+    $diagnosis["Rheumatoid Arthritis"] += 0.5;
   }
 
 
@@ -141,13 +143,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["diarrhea"] == "sometimes") {
      $diagnosis["Pneumonia"] += 0.5;
-     $diagnosis["Middle Ear Infection"] += 0.5;
+     $diagnosis["Inner Ear Infection"] += 0.5;
      $diagnosis["Severe Allergies"] += 0.5;
      $diagnosis["Hypothyroidism"] += 0.5;
   }
   if ($_POST["diarrhea"] == "often") {
      $diagnosis["Pneumonia"] += 1;
-     $diagnosis["Middle Ear Infection"] += 1;
+     $diagnosis["Inner Ear Infection"] += 1;
      $diagnosis["Severe Allergies"] += 1;
      $diagnosis["Hypothyroidism"] += 1;
   }
@@ -418,26 +420,35 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
 
 
-  //middle ear infection
+  //Inner Ear infection
   if ($_POST["irritability"] == "alot") {
-         $diagnosis["Middle Ear Infection"] += 1;
+         $diagnosis["Inner Ear Infection"] += 1;
   }
   if ($_POST["irritability"] == "some") {
-         $diagnosis["Middle Ear Infection"] += 0.5;
+         $diagnosis["Inner Ear Infection"] += 0.5;
   }
 
   if ($_POST["difficultysleeping"] == "alot") {
-         $diagnosis["Middle Ear Infection"] += 1;
+         $diagnosis["Inner Ear Infection"] += 1;
   }
   if ($_POST["difficultysleeping"] == "some") {
-         $diagnosis["Middle Ear Infection"] += 0.5;
+         $diagnosis["Inner Ear Infection"] += 0.5;
   }
 
   if ($_POST["appetite"] == "severe") {
-         $diagnosis["Middle Ear Infection"] += 1;
+         $diagnosis["Inner Ear Infection"] += 1;
   }
   if ($_POST["appetite"] == "some") {
-         $diagnosis["Middle Ear Infection"] += 0.5;
+         $diagnosis["Inner Ear Infection"] += 0.5;
+         $diagnosis["Rheumatoid Arthritis"] += 1;
+  }
+
+  if ($_POST["drainage"] == "bloody") {
+         $diagnosis["Inner Ear Infection"] += 2;
+  }
+  if ($_POST["drainage"] == "clear") {
+         $diagnosis["Inner Ear Infection"] += 0.5;
+         $diagnosis["Outer Ear Infection"] += 2;
   }
 
   //dehydration
@@ -513,6 +524,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
   if ($_POST["stiffness"] == "somewhat") {
          $diagnosis["Tetanus"] += 0.5;
+         $diagnosis["Rheumatoid Arthritis"] += 1;
   }
   if ($_POST["spasms"] == "yes") {
          $diagnosis["Tetanus"] += 2;
@@ -554,6 +566,74 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Gingivitis"] += 1;
   }
 
+//Blepharitis
+  if ($_POST["greasylids"] == "yes") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+  if ($_POST["redeyelid"] == "very") {
+         $diagnosis["Blehparitis"] += 2;
+  }
+  if ($_POST["redeyelid"] == "slightly") {
+         $diagnosis["Blehparitis"] += 0.5;
+  }
+
+  if ($_POST["flaking"] == "yes") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
+  if ($_POST["light"] == "yes") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
+  if ($_POST["eyelashes"] == "fallout") {
+         $diagnosis["Blehparitis"] += 2;
+  }
+
+  if ($_POST["eyelashes"] == "misdirected") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
+  if ($_POST["tearing"] == "teary") {
+         $diagnosis["Blehparitis"] += 2;
+  }
+  if ($_POST["tearing"] == "dry") {
+         $diagnosis["Blehparitis"] += 1;
+  }
+
+//Outer Ear Infection
+  if ($_POST["redear"] == "very") {
+         $diagnosis["Outer Ear Infection"] += 1;
+  }
+  if ($_POST["redear"] == "slightly") {
+         $diagnosis["Outer Ear Infection"] += 0.5;
+  }
+
+  if ($_POST["eardiscomfort"] == "very") {
+         $diagnosis["Outer Ear Infection"] += 2;
+  }
+  if ($_POST["eardiscomfort"] == "slightly") {
+         $diagnosis["Outer Ear Infection"] += 0.5;
+  }
+
+  if ($_POST["earpain"] == "very") {
+         $diagnosis["Outer Ear Infection"] += 1;
+  }
+
+  if ($_POST["earpain"] == "slightly") {
+         $diagnosis["Outer Ear Infection"] += 0.5;
+  }
+
+
+//Rheumatoid Arthritis
+  if ($_POST["jointswelling"] == "major") {
+         $diagnosis["Rheumatoid Arthritis"] += 2;
+  }
+  if ($_POST["jointswelling"] == "minor") {
+         $diagnosis["Rheumatoid Arthritis"] += 1;
+  }
+
+
+
     //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
       $diagnosis[$key] += $prev_diagnosis[$key];
@@ -572,12 +652,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Brain Aneurysm" => 5+8,
       "Brain Tumor" => 3+7,
       "Concussion" => 5+8,
-      "Middle Ear Infection" => 8+4,
+      "Inner Ear Infection" => 7+8.5,
       "Glaucoma" => 6+4,
       "Sinus Infection" => 7+3,
       "Anemia" => 3+6,
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
+<<<<<<< HEAD
       "Rheumatoid arthritis" => 3,
       "Tetanus" => 3+10,
       "Gingivitis" => 2,
@@ -585,6 +666,15 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Gingivitis" => 2+7.5,
       "Blepharitis" => 4,
       "Uveitis" => 4,
+=======
+      "Rheumatoid Arthritis" => 3+6.5,
+      "Tetanus" => 3+10,
+      "Tetanus" => 3+12,
+      "Gingivitis" => 2+7.5,
+      "Blepharitis" => 4+11.5,
+      "Uveitis" => 4+0,
+      "Outer Ear Infection" => 5+7.5,
+>>>>>>> 86e38573a623cdf54162526ac0068b3e77f4c4fc
     ];
 
     //  Uses the disease sums to give weighted percentage
@@ -638,7 +728,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     }
   ?>
 
-  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a Severe condition. </p>
+  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a condition. </p>
 
 </div>
 </html>
