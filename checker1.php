@@ -11,17 +11,18 @@
     "Brain Aneurysm" => 0,
     "Brain Tumor" => 0,
     "Concussion" => 0,
-    "Middle Ear Infection" => 0,
+    "Inner Ear Infection" => 0,
     "Glaucoma" => 0,
     "Sinus Infection" => 0,
     "Anemia" => 0,
     "Dehydration" => 0,
     "Hypothyroidism" => 0,
-    "Rheumatoid arthritis" => 0,
+    "Rheumatoid Arthritis" => 0,
     "Tetanus" => 0,
     "Gingivitis" => 0,
     "Blepharitis" => 0,
     "Uveitis" => 0,
+    "Outer Ear Infection" => 0,
   ];
 
 
@@ -30,31 +31,35 @@
 
   // ears
   if ($_POST["earache"] == "y") {
-    $diagnosis["Middle Ear Infection"] += 1;
+    $diagnosis["Inner Ear Infection"] += 1;
     $diagnosis["Sinus Infection"] += 1;
+    $diagnosis["Outer Ear Infection"] += 1;
   }
 
   if ($_POST["hearingloss"] == "y") {
       $diagnosis["Brain Tumor"] += 1;
-      $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Inner Ear Infection"] += 1;
+      $diagnosis["Outer Ear Infection"] += 1;
     }
 
   if ($_POST["eardischarge"] == "y") {
-      $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Inner Ear Infection"] += 1;
+      $diagnosis["Outer Ear Infection"] += 1;
     }
 
   if ($_POST["clog"] == "y") {
-      $diagnosis["Middle Ear Infection"] += 1;
       $diagnosis["Sinus Infection"] += 1;
+      $diagnosis["Outer Ear Infection"] += 1;
     }
 
   if ($_POST["itchyear"] == "y") {
       $diagnosis["Mild Allergies"] += 1;
+      $diagnosis["Outer Ear Infection"] += 1;
     }
 
   if ($_POST["ringing"] == "y") {
       $diagnosis["Concussion"] += 1;
-      $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Inner Ear Infection"] += 1;
       $diagnosis["Sinus Infection"] += 1;
     }
 
@@ -89,18 +94,18 @@
       $diagnosis["Brain Aneurysm"] += 1;
       $diagnosis["Concussion"] += 1;
       $diagnosis["Glaucoma"] += 1;
-      $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Inner Ear Infection"] += 1;
       $diagnosis["Severe Allergies"] += 1;
     }
 
   if ($_POST["appetite"] == "y") {
         $diagnosis["Tuberculosis"] += 1;
         $diagnosis["Hypothyroidism"] += 1;
-        $diagnosis["Rheumatoid arthritis"] += 1;
+        $diagnosis["Rheumatoid Arthritis"] += 1;
       }
 
   if ($_POST["tightjaw"] == "y") {
-        $diagnosis["Rheumatoid arthritis"] += 1;
+        $diagnosis["Rheumatoid Arthritis"] += 1;
         $diagnosis["Tetanus"] += 1;
 
       }
@@ -210,9 +215,9 @@
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Whooping Cough"] += 1;
       $diagnosis["Tuberculosis"] += 1;
-      $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Inner Ear Infection"] += 1;
       $diagnosis["Sinus Infection"] += 1;
-      $diagnosis["Rheumatoid arthritis"] += 1;
+      $diagnosis["Rheumatoid Arthritis"] += 1;
       $diagnosis["Tetanus"] += 1;
 
     }
@@ -244,7 +249,7 @@
       $diagnosis["Common Cold"] += 1;
       $diagnosis["Flu"] += 1;
       $diagnosis["Whooping Cough"] += 1;
-      $diagnosis["Middle Ear Infection"] += 1;
+      $diagnosis["Inner Ear Infection"] += 1;
       $diagnosis["Sinus Infection"] += 1;
       $diagnosis["Mild Allergies"] += 1;
     }

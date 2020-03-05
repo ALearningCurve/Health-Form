@@ -141,13 +141,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["diarrhea"] == "sometimes") {
      $diagnosis["Pneumonia"] += 0.5;
-     $diagnosis["Middle Ear Infection"] += 0.5;
+     $diagnosis["Inner Ear Infection"] += 0.5;
      $diagnosis["Severe Allergies"] += 0.5;
      $diagnosis["Hypothyroidism"] += 0.5;
   }
   if ($_POST["diarrhea"] == "often") {
      $diagnosis["Pneumonia"] += 1;
-     $diagnosis["Middle Ear Infection"] += 1;
+     $diagnosis["Inner Ear Infection"] += 1;
      $diagnosis["Severe Allergies"] += 1;
      $diagnosis["Hypothyroidism"] += 1;
   }
@@ -418,26 +418,26 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
 
 
-  //middle ear infection
+  //Inner Ear infection
   if ($_POST["irritability"] == "alot") {
-         $diagnosis["Middle Ear Infection"] += 1;
+         $diagnosis["Inner Ear Infection"] += 1;
   }
   if ($_POST["irritability"] == "some") {
-         $diagnosis["Middle Ear Infection"] += 0.5;
+         $diagnosis["Inner Ear Infection"] += 0.5;
   }
 
   if ($_POST["difficultysleeping"] == "alot") {
-         $diagnosis["Middle Ear Infection"] += 1;
+         $diagnosis["Inner Ear Infection"] += 1;
   }
   if ($_POST["difficultysleeping"] == "some") {
-         $diagnosis["Middle Ear Infection"] += 0.5;
+         $diagnosis["Inner Ear Infection"] += 0.5;
   }
 
   if ($_POST["appetite"] == "severe") {
-         $diagnosis["Middle Ear Infection"] += 1;
+         $diagnosis["Inner Ear Infection"] += 1;
   }
   if ($_POST["appetite"] == "some") {
-         $diagnosis["Middle Ear Infection"] += 0.5;
+         $diagnosis["Inner Ear Infection"] += 0.5;
   }
 
   //dehydration
@@ -606,19 +606,19 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Brain Aneurysm" => 5+8,
       "Brain Tumor" => 3+7,
       "Concussion" => 5+8,
-      "Middle Ear Infection" => 8+4,
+      "Inner Ear Infection" => 8+4,
       "Glaucoma" => 6+4,
       "Sinus Infection" => 7+3,
       "Anemia" => 3+6,
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
-      "Rheumatoid arthritis" => 3+,
+      "Rheumatoid Arthritis" => 3+0,
       "Tetanus" => 3+10,
-      "Gingivitis" => 2+,
       "Tetanus" => 3+12,
       "Gingivitis" => 2+7.5,
       "Blepharitis" => 4+11.5,
-      "Uveitis" => 4+,
+      "Uveitis" => 4+0,
+      "Outer Ear Infection" => 4+0,
     ];
 
     //  Uses the disease sums to give weighted percentage
