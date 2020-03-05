@@ -99,6 +99,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Sinus Infection"] += 1;
     $diagnosis["Dehydration"] += 1;
     $diagnosis["Hypothyroidism"] += 1;
+    $diagnosis["Rheumatoid Arthritis"] += 1;
   }
   if ($_POST["fatigue"] == "minor") {
     $diagnosis["Pneumonia"] += 0.5;
@@ -110,6 +111,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     $diagnosis["Sinus Infection"] += 0.5;
     $diagnosis["Dehydration"] += 0.5;
     $diagnosis["Hypothyroidism"] += 0.5;
+    $diagnosis["Rheumatoid Arthritis"] += 0.5;
   }
 
 
@@ -438,6 +440,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
   if ($_POST["appetite"] == "some") {
          $diagnosis["Inner Ear Infection"] += 0.5;
+         $diagnosis["Rheumatoid Arthritis"] += 1;
   }
 
   if ($_POST["drainage"] == "bloody") {
@@ -521,6 +524,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
   if ($_POST["stiffness"] == "somewhat") {
          $diagnosis["Tetanus"] += 0.5;
+         $diagnosis["Rheumatoid Arthritis"] += 1;
   }
   if ($_POST["spasms"] == "yes") {
          $diagnosis["Tetanus"] += 2;
@@ -620,7 +624,13 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   }
 
 
-
+//Rheumatoid Arthritis
+  if ($_POST["jointswelling"] == "major") {
+         $diagnosis["Rheumatoid Arthritis"] += 2;
+  }
+  if ($_POST["jointswelling"] == "minor") {
+         $diagnosis["Rheumatoid Arthritis"] += 1;
+  }
 
 
 
@@ -648,7 +658,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Anemia" => 3+6,
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
-      "Rheumatoid Arthritis" => 3+0,
+      "Rheumatoid Arthritis" => 3+6.5,
       "Tetanus" => 3+10,
       "Tetanus" => 3+12,
       "Gingivitis" => 2+7.5,
