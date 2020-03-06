@@ -23,6 +23,7 @@
     "Blepharitis" => 0,
     "Uveitis" => 0,
     "Outer Ear Infection" => 0,
+    "stroke" => 0,
   ];
 
 
@@ -154,6 +155,7 @@
       $diagnosis["Brain Aneurysm"] += 1;
       $diagnosis["Glaucoma"] += 1;
       $diagnosis["Uveitis"] += 1;
+      $diagnosis["Stroke"] += 1;
     }
 
   if ($_POST["twitch"] == "y") {
@@ -203,6 +205,7 @@
       $diagnosis["Anemia"] += 1;
       $diagnosis["Sinus Infection"] += 1;
       $diagnosis["Mild Allergies"] += 1;
+      $diagnosis["Stroke"] += 1;
     }
 
   if ($_POST["numb"] == "y") {

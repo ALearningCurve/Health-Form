@@ -275,6 +275,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Brain Aneurysm"] += 2;
      $diagnosis["Glaucoma"] += 2;
      $diagnosis["Flu"] += 0.5;
+     $diagnosis["Stroke"] += 2;
   }
   if ($_POST["headachetype"] == "mild") {
          $diagnosis["Common Cold"] += 1;
@@ -322,6 +323,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["visionchange"] == "blurry") {
      $diagnosis["Brain Aneurysm"] += 1;
      $diagnosis["Glaucoma"] += 1;
+     $diagnosis["Stroke"] += 1;
   }
 
 
@@ -658,23 +660,15 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Anemia" => 3+6,
       "Dehydration" => 2+6,
       "Hypothyroidism" => 2+12.5,
-<<<<<<< HEAD
-      "Rheumatoid arthritis" => 3,
-      "Tetanus" => 3+10,
-      "Gingivitis" => 2,
-      "Tetanus" => 3+12,
-      "Gingivitis" => 2+7.5,
-      "Blepharitis" => 4,
-      "Uveitis" => 4,
-=======
       "Rheumatoid Arthritis" => 3+6.5,
       "Tetanus" => 3+10,
-      "Tetanus" => 3+12,
       "Gingivitis" => 2+7.5,
       "Blepharitis" => 4+11.5,
       "Uveitis" => 4+0,
       "Outer Ear Infection" => 5+7.5,
->>>>>>> 86e38573a623cdf54162526ac0068b3e77f4c4fc
+      "Stroke" => 2+6,
+
+
     ];
 
     //  Uses the disease sums to give weighted percentage
