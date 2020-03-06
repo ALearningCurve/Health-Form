@@ -651,22 +651,22 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 // tiana fix total point value in coding section of report and poster
 // Setup: "Disease" => FirstCheckerSum + SecondCheckerSum
     $sums = [
-      "Common Cold" => 9+8,
-      "Flu" => 5+9,
+      "Common Cold" => 9+10,
+      "Flu" => 5+12,
       "Pneumonia" => 5+6,
-      "Whooping Cough" =>6+6.5,
-      "Tuberculosis" => 4+8.5,
+      "Whooping Cough" =>6+7.5,
+      "Tuberculosis" => 4+11.5,
       "Mild Allergies" => 8+3,
-      "Severe Allergies" => 8+13.5,
-      "Brain Aneurysm" => 5+8,
-      "Brain Tumor" => 3+7,
-      "Concussion" => 5+8,
+      "Severe Allergies" => 8+15,
+      "Brain Aneurysm" => 5+11.5,
+      "Brain Tumor" => 3+9,
+      "Concussion" => 5+10,
       "Inner Ear Infection" => 7+8.5,
-      "Glaucoma" => 6+4,
-      "Sinus Infection" => 7+3,
-      "Anemia" => 3+6,
-      "Dehydration" => 2+6,
-      "Hypothyroidism" => 2+12.5,
+      "Glaucoma" => 6+4.5,
+      "Sinus Infection" => 7+4,
+      "Anemia" => 3+8.5,
+      "Dehydration" => 2+8.5,
+      "Hypothyroidism" => 2+14,
       "Rheumatoid Arthritis" => 3+6.5,
       "Tetanus" => 3+10,
       "Gingivitis" => 2+7.5,
@@ -710,7 +710,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     echo "<br> <h2> Results </h2>";
     echo '<table id="results">';
     echo  '<tr>';
-    echo    '<th>Likelihood</th>';
+    echo    '<th>Percentage</th>';
     echo    '<th>Medical Condition Name</th>';
     echo '</tr>';
     // output data of each row
@@ -725,7 +725,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     }
   ?>
 
-  <p> Note that this program does not give an official diagnosis. Please consult a trained medical professional if you have concerns about a condition. </p>
+  <p> Note that this program does not give an official diagnosis. Percentages do not represent the likelihood of having a disease. Please consult a trained medical professional if you have concerns about a condition. </p>
 
 </div>
 </html>
