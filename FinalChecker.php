@@ -217,6 +217,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
      $diagnosis["Stroke"] += 1;
      $diagnosis["Concussion"] += 1;
      $diagnosis["Brain Tumor"] += 1;
+     $diagnosis["Alzheimer's"] += 2;
   }
   if ($_POST["speech"] == "slurred") {
      $diagnosis["Stroke"] += 1;
@@ -228,6 +229,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 //Concussion
   if ($_POST["confusion"] == "often") {
      $diagnosis["Concussion"] += 1;
+     $diagnosis["Alzheimer's"] += 2;
      $diagnosis["Brain Tumor"] += 1;
      $diagnosis["Brain Aneurysm"] += 1;
      $diagnosis["Dehydration"] += 1;
@@ -305,6 +307,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
   if ($_POST["behavior"] == "great") {
      $diagnosis["Brain Tumor"] += 1;
      $diagnosis["Hypothyroidism"] += 1;
+     $diagnosis["Alzheimer's"] += 2;
   }
   if ($_POST["behavior"] == "slight") {
      $diagnosis["Brain Tumor"] += 0.5;
@@ -432,9 +435,11 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["difficultysleeping"] == "alot") {
          $diagnosis["Inner Ear Infection"] += 1;
+         $diagnosis["Alzheimer's"] += 1;
   }
   if ($_POST["difficultysleeping"] == "some") {
          $diagnosis["Inner Ear Infection"] += 0.5;
+         $diagnosis["Alzheimer's"] += 0.5;
   }
 
   if ($_POST["appetite"] == "severe") {
@@ -642,6 +647,20 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     }
 
 
+//Alzheimer's
+  if ($_POST["lost"] == "often") {
+         $diagnosis["Alzheimer's"] += 1;
+  }
+  if ($_POST["lost"] == "sometimes") {
+         $diagnosis["Alzheimer's"] += 0.5;
+  }
+  if ($_POST["forget"] == "often") {
+         $diagnosis["Alzheimer's"] += 2;
+  }
+  if ($_POST["forget"] == "sometimes") {
+         $diagnosis["Alzheimer's"] += 0.5;
+  }
+
 
     //Add the two diagnostic results together to get a sum
     foreach (array_keys($prev_diagnosis) as $key){
@@ -660,6 +679,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Severe Allergies" => 8+15,
       "Brain Aneurysm" => 5+11.5,
       "Brain Tumor" => 3+9,
+      "Alzheimer's" => 1+14.5,
       "Concussion" => 5+10,
       "Inner Ear Infection" => 7+8.5,
       "Glaucoma" => 6+4.5,

@@ -10,6 +10,7 @@
     "Severe Allergies" => 0,
     "Brain Aneurysm" => 0,
     "Brain Tumor" => 0,
+    "Alzheimer's" => 0,
     "Concussion" => 0,
     "Inner Ear Infection" => 0,
     "Glaucoma" => 0,
@@ -178,6 +179,7 @@
   if ($_POST["memory"] == "y") {
       $diagnosis["Pneumonia"] += 1;
       $diagnosis["Concussion"] += 1;
+      $diagnosis["Alzheimer's"] += 1;
     }
 
   if ($_POST["dizzy"] == "y") {
