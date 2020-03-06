@@ -585,6 +585,8 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
 
   if ($_POST["light"] == "yes") {
          $diagnosis["Blehparitis"] += 1;
+         $diagnosis["Uveitis"] += 2;
+
   }
 
   if ($_POST["eyelashes"] == "fallout") {
@@ -634,6 +636,11 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
          $diagnosis["Rheumatoid Arthritis"] += 1;
   }
 
+  // uveitis
+  if ($_POST["darkeyes"] == "yes") {
+         $diagnosis["Uveitis"] += 2;
+    }
+
 
 
     //Add the two diagnostic results together to get a sum
@@ -664,7 +671,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
       "Tetanus" => 3+10,
       "Gingivitis" => 2+7.5,
       "Blepharitis" => 4+11.5,
-      "Uveitis" => 4+0,
+      "Uveitis" => 4+4,
       "Outer Ear Infection" => 5+7.5,
       "Stroke" => 2+6,
 
