@@ -332,7 +332,7 @@
   <!-- Here the questions will inserted from the other html files fr the specific diagnostics -->
   <div class="container my-3">
     <h1> Extended Analysis</h1>
-    <h2> Please answer the questions below. If you are unsure of how to answer a question, leave it blank.</h2>
+    <h3> Please answer the questions below. If you are unsure of how to answer a question, choose the option that answers "no" to the posed question. The program will not allow you to submit a form with an unanswered question.</h3>
     <form class="my-5 needs-validation" method="post" action="FinalChecker.php" novalidate>
 
     <!-- This hidden field carries over the results from the first form to the second one -->
