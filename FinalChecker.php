@@ -745,7 +745,7 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     }
   ?>
 
-  <p> Note that this program does not give an official diagnosis. Percentages do not represent the likelihood of having a disease. Please consult a trained medical professional if you have concerns about a condition. </p>
+  <p> Note that this program does not give an official diagnosis. Percentages are not representative of the exact likelihood of having a disease. Please consult a trained medical professional if you have concerns about a condition. </p>
 
 </div>
 </html>
