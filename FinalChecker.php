@@ -675,10 +675,6 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     foreach (array_keys($diagnosis) as $key)
     {
       if ($sums[$key]) {
-        //so things are not right
-
-        echo $key;
-        echo $sums[$key];
 
 
         $float = $diagnosis[$key]/$sums[$key] * 100;
