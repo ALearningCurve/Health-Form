@@ -725,15 +725,17 @@ $prev_diagnosis = unserialize(base64_decode($prev_diagnosis));
     //   }
     // }
     // echo "</ol>";
+    ?>
 
-    // adapt this into the current for loop
-    echo "<br> <h2> Results </h2>";
-    echo '<table id="results">';
-    echo  '<tr>';
-    echo    '<th>Percentage</th>';
-    echo    '<th>Medical Condition Name</th>';
-    echo '</tr>';
-    // output data of each row
+
+    <br> <h2> Results </h2>
+    <table id="results">
+      <tr>
+      <th>Percentage</th>
+      <th>Medical Condition Name</th>
+    </tr>
+
+    <?php
     foreach (array_keys($diagnosis) as $diag)
     {
       if ($diagnosis[$diag] > 0) {
